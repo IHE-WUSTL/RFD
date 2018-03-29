@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+   <f:event
+      listener="#{formReceiverCDAExporterTests.initBFDR_E_1_10000_LDS_A}"
+      type="preRenderView" />
+</f:metadata>
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+   <ui:define name="content">
+
+      <h:form>
+         <p:breadCrumb>
+            <p:menuitem
+               value="Home"
+               outcome="/public/RFD" />
+            <p:menuitem
+               value="Form Receiver CDA Exporter"
+               outcome="/public/FormReceiverCDAExporter/index" />
+            <p:menuitem
+               value="BFDR_E_1_10000_LDS_A"
+               outcome="BFDR_E_1_10000_LDS_A" />
+         </p:breadCrumb>
+      </h:form>
+
+      <br />
+      <div
+         align="left"
+         style="margin-left: 50px">
+
+         <h2>BFDR_E_1_10000_LDS_A</h2>
+
+         <h3>Special Instructions</h3>
+
+         <h3>Description</h3>
+         Tests the ability of a Form Receiver CDA Exporter actor to respond to
+         an ITI-35 Submit Form transaction, generating a CDA document which can
+         subsequently be sent to a Content Consumer Actor.
+         <ol type="1">
+            <li>A Form Filler simulator will send this ITI-35
+               SubmitFormRequest to your Form Receiver CDA Exporter under test:<br />
+               <font style="color: blue; font-size: 125%"> <pre>#{formReceiverCDAExporterTests.msg}</pre></font>
+            </li>
+            <li>The default form ID value for this test is
+               "BFDR_E_1_10000_LDS_A". You can substitute a different value
+               below if your system has constraints on the construction of the
+               formID.</li>
+            <li>Your Form Receiver CDA Exporter under test responds with a
+               valid SubmitFormResponse message, and generates a BFDR Birth CDA
+               Document (1.3.6.1.4.1.19376.1.7.3.1.1.19.2) as defined in QRPH
+               3:6.3.1.D1.</li>
+            <li>The BFDR Birth CDA Document is uploaded and evaluated to
+               determine if the parameter values passed in the SubmitFormRequest
+               are present.</li>
+            <li>Using the controls below, the testing person can evaluate
+               the test data sent in the SubmitFormRequest and Response, as well
+               as the contents of the generated BFDR Birth CDA Document.</li>
+         </ol>
+
+         <h2>Evaluation</h2>
+         <ol type="1">
+            <li>Complete the test steps below.</li>
+            <li>Use the testing system to review the SubmitFormResponse and
+               the CDA document content evaluation.</li>
+            <li>Use the testing system to display the data element/value
+               pairs and check for consistency with the values in the ITI-35
+               transaction.</li>
+         </ol>
+
+         <h2>Test Steps</h2>
+         <ol type="1">
+            <li>Fill in the URL of the Form Receiver CDA Exporter under
+               test in the space below.</li>
+            <li>The default formID is "BFDR_E_1_10000_LDS_A". Use the
+               default formID or an identifier specified by the Form Receiver
+               CDA Exporter under test. Enter the formID below.</li>
+            <li>Click the "Submit Form Request" command button. The Form
+               Filler simulator will send an ITI-35 SubmitFormRequest with the
+               characteristics described above to your Form Receiver CDA
+               Exporter. This transaction will be monitored and included in the
+               Transactions table below.</li>
+            <li>If this step is successful your Form Receiver CDA Exporter
+               should also generate a BFDR Birth CDA Document to send to a
+               Content Consumer actor. Using creating means of your own
+               devising, save that CDA document to a file.</li>
+            <li>Using the Upload CDA document section below, upload that
+               file. (Many browsers will support drag and drop also.) The test
+               system will perform an evaluation of the uploaded CDA document,
+               which will also appear in the Transactions table below.</li>
+            <li>View the transaction logging data in the Transactions Table
+               below. You should see element/value pairs that match the data you
+               entered in the form.</li>
+         </ol>
+
+         <h3>Supplemental Materials</h3>
+         <h3>References to Standards</h3>
+         <h3>Testable Assertions</h3>
+
+         <h:form id="testDataForm">
+            <p:fieldset
+               legend="SubmitFormRequest test step"
+               styleClass="testData">
+               <h:panelGrid
+                  columns="3"
+                  cellpadding="5">
+                  <p:outputLabel
+                     for="fmurl"
+                     value="URL of (your) Form Receiver CDA Exporter:" />
+                  <p:inputText
+                     id="fmurl"
+                     value="#{formReceiverCDAExporterTests.serverURL}" />
+                  <p:message for="fmurl" />
+                  <p:outputLabel
+                     for="formID"
+                     value="form ID:" />
+                  <p:inputText
+                     id="formID"
+                     value="#{formReceiverCDAExporterTests.formID}" />
+                  <p:message for="formID" />
+                  <p:commandButton
+                     id="startTest"
+                     value="Submit Form Request"
+                     actionListener="#{formReceiverCDAExporterTests.submitBFDR_E_1_10000_LDS_A}"
+                     ajax="false" />
+               </h:panelGrid>
+               <p:messages globalOnly="true" />
+            </p:fieldset>
+         </h:form>
+         <h:form id="fileUploadForm">
+            <p:fieldset
+               legend="Upload BFDR Birth CDA Document for evaluation test step"
+               styleClass="testData">
+               <p:fileUpload
+                  label="select file to upload (or drag here)"
+                  uploadLabel="Upload selected file"
+                  mode="advanced"
+                  dragDropSupport="true"
+                  update="uplMessages"
+                  auto="true"
+                  sizeLimit="524288"
+                  allowTypes="/(\.|\/)(txt|xml)$/"
+                  fileUploadListener="#{formReceiverCDAExporterTests.uploadBFDR_E_1_10000_LDS_A}" />
+               <p:growl
+                  id="uplMessages"
+                  showDetail="true" />
+            </p:fieldset>
+         </h:form>
+      </div>
+
+      <div>
+         <h:form id="transactionTableForm">
+
+            <p:dataTable
+               id="transactionTable"
+               var="trn"
+               value="#{sessionBean.transactions}"
+               selection="#{sessionBean.selectedTransaction}"
+               selectionMode="single"
+               rowKey="#{trn.id}"
+               emptyMessage="No transactions available to view."
+               sortBy="#{trn.id}">
+
+               <p:ajax
+                  event="rowSelect"
+                  update="transactionTableForm" />
+               <p:ajax
+                  event="rowUnselect"
+                  update="transactionTableForm" />
+
+               <f:facet name="header">
+               Transactions (Select to View)
+               </f:facet>
+
+               <p:column
+                  sortBy="#{trn.id}"
+                  headerText="ID"
+                  style="width:50px">
+                  <h:outputText value="#{trn.id}" />
+               </p:column>
+
+               <p:column
+                  sortBy="#{trn.connOpenTime}"
+                  headerText="Connection Open Time and Date"
+                  style="width:240px">
+                  <h:outputText value="#{trn.connOpenTime}" />
+               </p:column>
+
+               <p:column
+                  sortBy="#{trn.type}"
+                  headerText="Type"
+                  style="width:130px">
+                  <h:outputText value="#{trn.type}" />
+               </p:column>
+
+               <p:column
+                  sortBy="#{trn.clientIp}"
+                  headerText="Remote Address"
+                  style="width:125px">
+                  <h:outputText value="#{trn.clientIp}" />
+               </p:column>
+
+               <p:column headerText="Transaction Description">
+                  <h:outputText value="#{trn.description}" />
+               </p:column>
+
+               <f:facet name="footer">
+                  <p:commandButton
+                     disabled="#{sessionBean.deleteTransactionDisabled}"
+                     icon="ui-icon-search"
+                     update="transactionDetailForm"
+                     value="View Detail" />
+                  <p:commandButton
+                     disabled="#{sessionBean.deleteTransactionDisabled}"
+                     icon="ui-icon-close"
+                     update="transactionTableForm transactionDetailForm"
+                     actionListener="#{sessionBean.deleteThisTransaction}"
+                     value="Delete Transaction" />
+                  <p:commandButton
+                     disabled="#{sessionBean.clearAllTransactionsDisabled}"
+                     value="Clear all Transactions"
+                     icon="ui-icon-circle-close"
+                     update="transactionTableForm transactionDetailForm"
+                     actionListener="#{sessionBean.clearAllTransactions}" />
+                  <p:commandButton
+                     disabled="#{sessionBean.updateTransactionsTableDisabled}"
+                     value="Update Transactions Table"
+                     icon="ui-icon-refresh"
+                     update="transactionTableForm transactionDetailForm"
+                     actionListener="#{sessionBean.updateTransactionTable}" />
+               </f:facet>
+
+            </p:dataTable>
+
+         </h:form>
+
+         <p:socket channel="/wsLogReceiveEvent">
+            <p:ajax
+               event="message"
+               update="transactionTableForm:transactionTable" />
+         </p:socket>
+
+      </div>
+
+      <div>
+         <h:form id="transactionDetailForm">
+            <p:accordionPanel
+               id="msgPanel"
+               rendered="#{sessionBean.transactionSelected}">
+               <p:tab
+                  title="Transaction Details: 
+                     #{sessionBean.selectedTransaction.description}">
+
+                  <!-- Transaction HTTP and SOAP properties -->
+                  <p:dataTable
+                     id="propertyTable"
+                     rendered="#{sessionBean.renderProperties}"
+                     var="row"
+                     value="#{sessionBean.properties}"
+                     emptyMessage="No properties found">
+
+                     <f:facet name="header">Transaction HTTP and SOAP properties</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{row.label}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{row.value}" />
+                     </p:column>
+
+                  </p:dataTable>
+
+                  <!-- Validation and testing status information -->
+                  <p:dataTable
+                     id="statusTable"
+                     var="status"
+                     value="#{sessionBean.statuses}"
+                     rowStyleClass="#{sessionBean.statusStyle(status)}"
+                     emptyMessage="No statuses found">
+
+                     <f:facet name="header">Validation and testing status information</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{status.statusType.toString()}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{status.msg}" />
+                     </p:column>
+
+                  </p:dataTable>
+
+                  <!-- SOAP Request Name Value pairs -->
+                  <p:dataTable
+                     rendered="#{sessionBean.requestName != null}"
+                     id="requestNameValueTable"
+                     var="pair"
+                     value="#{sessionBean.requestPairs}"
+                     rowStyleClass="powderblue"
+                     emptyMessage="No name/value pairs recorded">
+
+                     <f:facet name="header">SOAP #{sessionBean.requestName} Data Values</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{pair.label}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{pair.value}" />
+                     </p:column>
+
+                  </p:dataTable>
+
+
+                  <!-- SOAP Response Name Value pairs -->
+                  <p:dataTable
+                     rendered="#{sessionBean.responseName != null}"
+                     id="responseNameValueTable"
+                     var="pair"
+                     value="#{sessionBean.responsePairs}"
+                     rowStyleClass="peachpuff"
+                     emptyMessage="No name/value pairs recorded">
+
+                     <f:facet name="header">SOAP #{sessionBean.responseName} Data Values</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{pair.label}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{pair.value}" />
+                     </p:column>
+
+                  </p:dataTable>
+               </p:tab>
+
+            </p:accordionPanel>
+
+            <p:accordionPanel
+               rendered="#{sessionBean.transactionSelected}"
+               value="#{sessionBean.msgs}"
+               var="msg">
+               <p:tab title="#{msg.lead}">
+                  <pre style="width: 100%">
+#{msg.pretty}
+               </pre>
+               </p:tab>
+
+
+            </p:accordionPanel>
+
+
+         </h:form>
+      </div>
+
+   </ui:define>
+</ui:composition>
+</html>
+

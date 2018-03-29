@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VRDR_1_10000_MS_VRDR_A Test Form</title>
+<meta
+   http-equiv="Content-Type"
+   content="text/html;charset=UTF-8"/>
+<script type="text/javascript">
+   function soap(dateOfDeath, timeOfDeath, certifierName, certifierAddress,
+		dateCertified, dateOfBirth, dateOfInjury, didTobaccoContribute, 
+      addressOfDeath, pregnancyStatus, mannerOfDeath, locationOfDeath, sex, 
+      timeOfInjury, titleOfCertifier, transportationInjury) {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open('POST', 'http://localhost:3302/FormReceiver', true);
+
+      var sr = '<?xml version="1.0" encoding="utf-8"?>\n'
+            + '<soap:Envelope\n ' 
+            +       'xmlns:soap="http://www.w3.org/2003/05/soap-envelope"\n '
+            +       'xmlns:wsa="http://www.w3.org/2005/08/addressing"\n '
+            +       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n '
+            +       'xmlns:urn="urn:ihe:iti:rfd:2007">\n'
+            + '<soap:Header>\n '
+            + '<wsa:To>http://localhost:3302/FormReceiver</wsa:To>\n'
+            + '<wsa:MessageID>urn:uuid:76A2C3D9BCD3AECFF31217932910053</wsa:MessageID>\n'
+            + '<wsa:Action soap:mustUnderstand="1">urn:ihe:iti:2007:SubmitForm</wsa:Action>\n'
+            + '</soap:Header>\n' + '<soap:Body>\n'
+            + '<SubmitFormRequest xmlns="urn:ihe:iti:rfd:2007">\n'
+            + '<testFormID xsi:type="xsd:string">VRDR_1_10000_MS_VRDR_A</testFormID>\n'
+            + '<dateOfDeath          xsi:type="xsd:string">' + dateOfDeath          + '</dateOfDeath         >\n'
+            + '<timeOfDeath          xsi:type="xsd:string">' + timeOfDeath          + '</timeOfDeath         >\n'
+            + '<certifierName        xsi:type="xsd:string">' + certifierName        + '</certifierName       >\n'
+            + '<certifierAddress     xsi:type="xsd:string">' + certifierAddress     + '</certifierAddress    >\n'
+            + '<dateCertified        xsi:type="xsd:string">' + dateCertified        + '</dateCertified       >\n'
+            + '<dateOfBirth          xsi:type="xsd:string">' + dateOfBirth          + '</dateOfBirth         >\n'
+            + '<dateOfInjury         xsi:type="xsd:string">' + dateOfInjury         + '</dateOfInjury        >\n'
+            + '<didTobaccoContribute xsi:type="xsd:string">' + didTobaccoContribute + '</didTobaccoContribute>\n'
+            + '<addressOfDeath       xsi:type="xsd:string">' + addressOfDeath       + '</addressOfDeath      >\n'
+            + '<pregnancyStatus      xsi:type="xsd:string">' + pregnancyStatus      + '</pregnancyStatus     >\n'
+            + '<mannerOfDeath        xsi:type="xsd:string">' + mannerOfDeath        + '</mannerOfDeath       >\n'
+            + '<locationOfDeath      xsi:type="xsd:string">' + locationOfDeath      + '</locationOfDeath     >\n'
+            + '<sex                  xsi:type="xsd:string">' + sex                  + '</sex                 >\n'
+            + '<timeOfInjury         xsi:type="xsd:string">' + timeOfInjury         + '</timeOfInjury        >\n'
+            + '<titleOfCertifier     xsi:type="xsd:string">' + titleOfCertifier     + '</titleOfCertifier    >\n'
+            + '<transportationInjury xsi:type="xsd:string">' + transportationInjury + '</transportationInjury>\n'
+            + '</SubmitFormRequest>\n'
+            + '</soap:Body>\n' + '</soap:Envelope>\n';
+      xmlhttp.setRequestHeader('Content-Type', 'application/soap+xml');
+      xmlhttp.send(sr);
+   }
+</script>
+</head>
+<body>
+   <form
+      name="Demo"
+      action=""
+      method="post">
+      <div>
+         VRDR_1_10000_MS_VRDR_A Test Form<br />
+         <table>
+         
+            <tr align="center">
+               <td><b>Element Name</b></td>
+               <td><b>Element Value</b></td>
+               <td><b>Coding system</b></td>
+            </tr>
+
+            <tr>
+               <td>Date of Death:</td>
+               <td><input
+                  id="dateOfDeath"
+                  type="text"
+                  name="dateOfDeath"
+                  value="20150706 - 20150706"/></td>
+            </tr>
+
+            <tr>
+               <td>Time of Death:</td>
+               <td><input
+                  id="timeOfDeath"
+                  type="text"
+                  name="timeOfDeath"
+                  size="35"
+                  value="20150706133000-0600 - 20150706133000-0600"/></td>
+            </tr>
+
+            <tr>
+               <td>Certifier Name:</td>
+               <td><input
+                  id="certifierName"
+                  type="text"
+                  name="certifierName"
+                  value="Dr. Thomas Jefferson "/></td>
+            </tr>
+
+            <tr>
+               <td>Certifier Address:</td>
+               <td><input
+                  id="certifierAddress"
+                  type="text"
+                  name="certifierAddress"
+                  size="35"
+                  value="3 Aaron Burr Way Chicago IL 60500 US"/></td>
+            </tr>
+
+            <tr>
+               <td>Date Certified:</td>
+               <td><input
+                  id="dateCertified"
+                  type="text"
+                  name="dateCertified"
+                  value="20150706 - 20150706"/></td>
+            </tr>
+
+            <tr>
+               <td>Date of Birth (Mo/Day/Yr):</td>
+               <td><input
+                  id="dateOfBirth"
+                  type="text"
+                  name="dateOfBirth"
+                  value="19641120" /></td>
+            </tr>
+
+            <tr>
+               <td>Date of Injury:</td>
+               <td><input
+                  id="dateOfInjury"
+                  type="text"
+                  name="dateOfInjury"
+                  value="20150705" /></td>
+            </tr>
+
+            <tr>
+               <td>Did tobacco use contribute to death?:</td>
+               <td><input
+                  id="didTobaccoContribute"
+                  type="text"
+                  name="didTobaccoContribute"
+                  value="373067005" /></td>
+               <td>No 2.16.840.1.113883.6.96 SNOMED-CT</td>
+            </tr>
+
+            <tr>
+               <td>Street address where death occurred:</td>
+               <td><input
+                  id="addressOfDeath"
+                  type="text"
+                  name="addressOfDeath"
+                  size="35"
+                  value="15 East Lake Chicago IL 60500 "/></td>
+            </tr>
+
+            <tr>
+               <td>Pregnancy Status:</td>
+               <td><input
+                  id="pregnancyStatus"
+                  type="text"
+                  name="pregnancyStatus"
+                  value="PHC1260" /></td>
+               <td>Not pregnant within the past year 2.16.840.1.114222.4.5.274 PHIN VS (CDC Local Coding System)</td>
+            </tr>
+
+            <tr>
+               <td>Manner of Death:</td>
+               <td><input
+                  id="mannerOfDeath"
+                  type="text"
+                  name="mannerOfDeath"
+                  value="38605008" /></td>
+               <td>Natural Death (event) 2.16.840.1.113883.6.96 SNOMED-CT</td>
+            </tr>
+
+            <tr>
+               <td>Place of Death:</td>
+               <td><input
+                  id="locationOfDeath"
+                  type="text"
+                  name="locationOfDeath"
+                  size="35"
+                  value="15 East Lake Chicago IL 60500 "/></td>
+            </tr>
+
+            <tr>
+               <td>Administrative Sex:</td>
+               <td><input
+                  id="sex"
+                  type="text"
+                  name="sex"
+                  value="M" /></td>
+               <td> 2.16.840.1.113883.5.1 HL7 AdministrativeGender</td>
+            </tr>
+
+            <tr>
+               <td>Time of Injury:</td>
+               <td><input
+                  id="timeOfInjury"
+                  type="text"
+                  name="timeOfInjury"
+                  value="20150705" /></td>
+            </tr>
+
+            <tr>
+               <td>Title of Certifier:</td>
+               <td><input
+                  id="titleOfCertifier"
+                  type="text"
+                  name="titleOfCertifier"
+                  value="309343006" /></td>
+               <td>Physician 2.16.840.1.113883.6.96 SNOMED-CT</td>
+            </tr>
+
+            <tr>
+               <td>Transportation Injury:</td>
+               <td><input
+                  id="transportationInjury"
+                  type="text"
+                  name="transportationInjury"
+                  value="236320001" /></td>
+               <td>Driver/Operator 2.16.840.1.113883.6.96 SNOMED-CT</td>
+            </tr>
+            
+            <tr>
+               <td><input
+                  type="button"
+                  value="Send SOAP Request"
+                  onclick="soap(document.getElementById('dateOfDeath').value, 
+                                document.getElementById('timeOfDeath').value, 
+                                document.getElementById('certifierName').value, 
+                                document.getElementById('certifierAddress').value, 
+                                document.getElementById('dateCertified').value, 
+                                document.getElementById('dateOfBirth').value, 
+                                document.getElementById('dateOfInjury').value, 
+                                document.getElementById('didTobaccoContribute').value, 
+                                document.getElementById('addressOfDeath').value, 
+                                document.getElementById('pregnancyStatus').value, 
+                                document.getElementById('mannerOfDeath').value, 
+                                document.getElementById('locationOfDeath').value, 
+                                document.getElementById('sex').value, 
+                                document.getElementById('timeOfInjury').value, 
+                                document.getElementById('titleOfCertifier').value, 
+                                document.getElementById('transportationInjury').value)" /></td>
+            </tr>
+         </table>
+      </div>
+   </form>
+</body>
+</html>

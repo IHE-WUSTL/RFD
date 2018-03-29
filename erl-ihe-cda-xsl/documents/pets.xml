@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pets>
+  <pet type="cat">Max</pet>
+<pet type="parrot">Peter
+    <color>red</color>
+  </pet>
+</pets>

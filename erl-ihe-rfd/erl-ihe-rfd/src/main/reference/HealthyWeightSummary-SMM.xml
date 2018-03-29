@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:n1="urn:hl7-org:v3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:voc="urn:hl7-org:v3/voc"
+  xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+  
+  <realmCode code="US"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+  
+  <!-- These templates assert the level of conformance using HL7 History and Physical Header Specifications -->
+  <!-- CONF-HP-3 Level 1 asserts compliance with all general or non-level-specific constraints -->
+  <!-- <templateId extension="IMPL_CDAR2_LEVEL1-2REF_US_I2_2005SEP" root="2.16.840.1.113883.10.20.10"/>-->
+  <!-- CONF-HP-4 Level 2 asserts compliance with Level 1 requirements and asserts the presence of section codes-->
+  <!-- <templateId extension="IMPL_CDAR2_LEVEL1-2REF_US_I2_2005SEP" root="2.16.840.1.113883.10.20.20"/>-->
+  <!-- CONF-HP-5 Level 3 asserts compliance with Level 2 requirements and the use of CDA entries in some sections -->
+  <!-- <templateId extension="IMPL_CDAR2_LEVEL1-2REF_US_I2_2005SEP" root="2.16.840.1.113883.10.20.30"/>-->
+  
+  <!-- Only include this template for a document that conforms to the US Realm -->
+  <templateId extension="HL7 General Header Constraints" root="2.16.840.1.113883.10.20.3"/>
+  <!-- PCC TF Vol2 6.3.1.1.3 -->
+  <templateId extension="Medical Document" root="1.3.6.1.4.1.19376.1.5.3.1.1.1"/>
+  <!-- PCC TF Vol2 6.3.1.2 -->
+  <templateId extension="Medical Summary" root="1.3.6.1.4.1.19376.1.5.3.1.1.2"/>
+  <templateId extension="Healthy Weight Summary" root="1.3.6.1.4.1.19376.1.7.3.1.1.24.1"/>
+  
+  <id root="1.3.6.1.4.1.21367.2015.1.2.777" extension="HWS_2015-1"/>
+  
+  <code code="76543-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+    displayName="Healthy Weight Summary Note"/>
+  
+  <title>IHE Connectathon XDSMS Discharge</title>
+  
+  <effectiveTime value="20111020140000-0600"/>
+  
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  
+  <languageCode code="en-US"/>
+  
+  <recordTarget>
+    <patientRole>
+      <id extension="20_2015-1" root="1.3.6.1.4.1.21367.2010.1.2.777.2"/>
+      <addr>
+        <streetAddressLine>2 John Adams Street</streetAddressLine>
+        <city>Chicago</city>
+        <state>IL</state>
+        <postalCode>12345</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom nullFlavor="UNK" use="HP"/>
+      <patient>
+        <name use="L">
+          <given qualifier="CL">George</given>
+          <family>Moore</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19271127"/>
+        <raceCode code="101" codeSystem="2.16.840.1.113883.6.238" displayName="White"/>
+        <languageCommunication>
+          <languageCode nullFlavor="UNK"/>
+        </languageCommunication>
+      </patient>
+      <providerOrganization>
+        <id extension="21_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.777.3"/>
+        <name>Mount Vernon Hospital</name>
+        <telecom value="tel:+1-(345)999-8765" use="WP"/>
+        <addr>
+          <streetAddressLine>456 Estate Street</streetAddressLine>
+          <city>Chicago</city>
+          <state>IL</state>
+          <postalCode>12345</postalCode>
+          <country>US</country>
+        </addr>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  
+  
+  <author>
+    <time value="20101013161200-0600"/>
+    <assignedAuthor>
+      <id root="1.3.6.1.4.1.21367.2010.1.2.777.3" extension="22_2010-1"/>
+      <code code="SELF" codeSystem="2.16.840.1.113883.5.111" displayName="Self" codeSystemName="HL7"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK" use="WP"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Thomas</given>
+          <family>Jefferson</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  
+  <author>
+    <time value="20091223120000-0600"/>
+    <assignedAuthor>
+      <id extension="23_2010-1" root="1.3.6.1.4.1.21367.1.2.777.3"/>
+      <addr>
+        <streetAddressLine>3 Aaron Burr Way</streetAddressLine>
+        <city>Chicago</city>
+        <state>IL</state>
+        <postalCode>12345</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:+1-(555)777-1234" use="WP"/>
+      <assignedAuthoringDevice>
+        <softwareName>Care Ware v1</softwareName>
+      </assignedAuthoringDevice>
+      <representedOrganization>
+        <id extension="30_2010-1" root="1.3.6.1.4.1.21367.1.2.777.3"/>
+        <name>HIT Solutions</name>
+        <telecom value="tel:+1-(555) 888-1234" use="WP"/>
+        <addr>
+          <streetAddressLine>123 Oak Street</streetAddressLine>
+          <city>Oak Brook</city>
+          <state>IL</state>
+          <postalCode>60523</postalCode>
+          <country>US</country>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="26_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.777.3"/>
+        <name>Greater Chicago HIE</name>
+        <telecom value="tel:+1-(555)777-1234" use="WP"/>
+        <addr>
+          <streetAddressLine>790 Jorie Blvd</streetAddressLine>
+          <city>Oak Brook</city>
+          <state>IL</state>
+          <postalCode>60523</postalCode>
+          <country>US</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  
+  <authenticator>
+    <time value="20101013104100-0600"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id extension="38_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.777.3"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK" use="WP"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Thomas</given>
+          <family>Jefferson</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+  
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20101012160000-0600"/>
+        <high value="20101012164500-0600"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.3"/>
+        <templateId root="2.16.840.1.113883.3.88.11.32.4"/>
+        <functionCode code="PP" codeSystem="2.16.840.1.113883.12.443"/>
+        <time>
+          <low/>
+          <high/>
+        </time>
+        <assignedEntity>
+          <id root="1.3.6.1.4.1.21367.2010.1.2.777.3" extension="32_2010-01"/>
+          <code code="260000000X" codeSystem="2.16.840.1.113883.6.101"
+            codeSystemName="ProviderCodes" displayName="Mount Vernon Hospitalist"/>
+          <addr nullFlavor="UNK"/>
+          <telecom nullFlavor="UNK" use="WP"/>
+          <assignedPerson>
+            <name>
+              <prefix>Dr.</prefix>
+              <given>Adam</given>
+              <family>Smith</family>
+            </name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  
+  <componentOf>
+    <encompassingEncounter>
+      <id root="1.3.6.1.4.1.21367.2010.1.2.777.3" extension="31_2010-1"/>
+      <effectiveTime>
+        <low value="201010110900-0600"/>
+        <high value="201010131000-0600"/>
+      </effectiveTime>
+    </encompassingEncounter>
+  </componentOf>
+  
+  <component>
+    <structuredBody>
+      
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.9"/>
+          <!-- Payers (CCD) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.7"/>
+          <!-- Payers Section -->
+          <id root="1.3.6.1.4.1.21367.2015.1.1" extension=""/>
+          <code code="48768-6" displayName="Payment Sources" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <text>Payer: Blue Moon HMO</text>
+          <entry>
+            <act classCode="ACT" moodCode="DEF">
+              <templateId root="2.16.840.1.113883.10.20.1.20"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.17"/>
+              <!-- IHE PCC Coverage Entry -->
+              <id root="1.3.6.1.4.1.21367.2015.1.1.1" extension=""/>
+              <statusCode code="completed"/>
+              <code code="48768-6" displayName="Payment Sources" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"/>
+              <entryRelationship typeCode="COMP" inversionInd="false">
+                <sequenceNumber value="1"/>
+                <!-- Need to satisfy CCD CONF-47: A coverage activity SHALL contain one or more sources of information, as defined in section 5.2 Source. -->
+                
+                <!-- The following act is a policy activity (CCD 3.1.2.1.2) -->
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- CCD CONF-48, 49, 50 -->
+                  <templateId root="2.16.840.1.113883.10.20.1.26"/>
+                  <id root="BMHMO-ID" extension=""/>
+                  <statusCode code="completed"/>
+                  <!-- Does the code that follows and corresponding codeSystem OID match author's intent? -->
+                  <code code="611" displayName="BC Managed Care - HMO"
+                    codeSystem="2.16.840.1.114222.4.11.3591"
+                    codeSystemName="Source of Payment Typology (PHDSC)"/>
+                  <performer typeCode="PRF">
+                    <!-- CCD CONF-56 -->
+                    <assignedEntity>
+                      <id root="BMHMO-ID" extension=""/>
+                      <!-- SMM 2015.07.01 I am pretty sure my representation of the name of the payer is not correct -->
+                      <representedOrganization>
+                        <name>Blue Moon HMO</name>
+                      </representedOrganization>
+                    </assignedEntity>
+                  </performer>
+                  <participant typeCode="COV">
+                    <!-- CCD CONF-58 -->
+                    <participantRole>
+                      <id root="SMM_Subscriber_ID" extension=""/>
+                      <code code="FAMDEP" displayName="Family Dependent"
+                        codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 RoleCode"/>
+                      <!-- CCD CONF-60 -->
+                    </participantRole>
+                    <time>
+                      <!-- CCD CONF-62 -->
+                      <low value="20150101010000-0600"/>
+                      <high value="20181231235959-0600"/>
+                    </time>
+                    
+                  </participant>
+                  <participant typeCode="HLD">
+                    <!-- CCD CONF-63 -->
+                    <id root="SMM_Subscriber_ID" extension=""/>
+                    <time>
+                      <!-- CCD CONF-65 -->
+                      <low value="20150101010000-0600"/>
+                      <high value="20181231235959-0600"/>
+                    </time>
+                  </participant>
+                  <entryRelationship typeCode="REF">
+                    <!-- CCD CONF-66 -->
+                    <act classCode="ACT" moodCode="DEF">
+                      <!-- CCD CONF-67 -->
+                      <!-- CCD CONF-67: I have no idea how to represent this -->
+                      <!-- I want to represent the description. See next line -->
+                      <!-- ....or an Act, with Act [@classCode = 'ACT'] and Act [@moodCode = 'DEF'], representing a description of the coverage plan. -->
+                    </act>
+                  </entryRelationship>
+                </act>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+      <component>
+        <section>       <!-- Coded Vital Signs -->
+          <templateId root= "2.16.840.1.113883.10.20.1.16" />   <!-- CCD Vital Signs Template ID -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>   <!-- Vital Signs Template ID -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2" /> <!-- Coded Vital Signs Template ID -->
+          <code code='8716-3' displayName='Vital Signs'
+            codeSystem='2.16.840.1.113883.6.1 ' codeSystemName='LOINC'/>
+          <title>Vital Signs</title>
+          <text>weight: 50 kg, Height: 1.5 m</text>
+          <entry>
+            <organizer classCode='CLUSTER' moodCode='EVN'>
+              <templateId root='2.16.840.1.113883.10.20.1.32'/>
+              <templateId root='2.16.840.1.113883.10.20.1.35'/>
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.1'/> 
+              <id root='' extension=''/>
+              <code code='8716-3' displayName='VITAL SIGNS'
+                codeSystem='2.16.840.1.113883.6.96' codeSystemName='SNOMED CT'/>
+              <statusCode code='completed'/>
+              <effectiveTime value='20150701011300-0600'/> 
+              <!-- one or more vital signs observations -->
+              <component typeCode='COMP'>
+                <observation classCode='OBS' moodCode='EVN'> 
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13' />
+                  <templateId root='2.16.840.1.113883.10.20.1.31' />
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.2' />
+                  <effectiveTime value='20150701011300-0600'/>
+                  <code code='3141-9'
+                    codeSystem='2.16.840.1.113883.6.1'
+                    codeSystemName='LOINC'
+                    displayName='BODY WEIGHT (MEASURED)' />
+                  <value xsi:type="PQ" value="50" unit="kg" />
+                </observation>
+              </component>
+              <component typeCode='COMP'>
+                <observation classCode='OBS' moodCode='EVN'> 
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13' />
+                  <templateId root='2.16.840.1.113883.10.20.1.31' />
+                  <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.2' />
+                  <effectiveTime value='20150701011300-0600'/>
+                  <code code='8302-2'
+                    codeSystem='2.16.840.1.113883.6.1'
+                    codeSystemName='LOINC'
+                    displayName='BODY HEIGHT (MEASURED)' />
+                  <value xsi:type="PQ" value="1.5" unit="m" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      
+
+      <component>
+        <section>       <!-- Coded Social History -->
+          <templateId root="2.16.840.1.113883.10.20.1.15" />     <!-- (CCD) Social History Template ID -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16"/>    <!-- (IHE) Social History Template ID -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.16.1" /> <!-- Coded Vital Signs Template ID -->
+          <code code='29762-2' displayName='Social History'
+            codeSystem='2.16.840.1.113883.6.1 ' codeSystemName='LOINC'/>
+          <title>Social History</title>
+          <text>Fruit flavored or sports drinks: 2 yesterday, Soft drinks: 1 yesterday, Water: 4 yesterday, Milk: 0 yesterday</text>
+          <entry>
+            <observation classCode='OBS' moodCode='EVN'>
+              <templateId root='2.16.840.1.113883.10.20.1.33' />        <!-- (CCD) Social History Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13' />      <!-- (IHE) Simple Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.4' />    <!-- (IHE) Social History Observation -->
+              <effectiveTime value='20150701011300-0600'/>
+              <code code='77297-0'
+                codeSystem='2.16.840.1.113883.6.1'
+                codeSystemName='LOINC'
+                displayName='How often did you drink sports drinks or fruit flavored drinks with sugar (such as Kool-Aid, Hi-C, lemonade, or cranberry cocktail) in past 30 days' />
+              <value xsi:type='INT' value='2'/>
+            </observation>
+          </entry>
+
+          <entry>
+            <observation classCode='OBS' moodCode='EVN'>
+              <templateId root='2.16.840.1.113883.10.20.1.33' />        <!-- (CCD) Social History Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13' />      <!-- (IHE) Simple Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.4' />    <!-- (IHE) Social History Observation -->
+              <effectiveTime value='20150701011300-0600'/>
+              <code code='77300-2'
+                codeSystem='2.16.840.1.113883.6.1'
+                codeSystemName='LOINC'
+                displayName='How often did you drink regular, carbonated soda or soft drinks that contain sugar in past 30D' />
+              <value xsi:type='INT' value='1'/>
+            </observation>
+          </entry>
+
+          <entry>
+            <observation classCode='OBS' moodCode='EVN'>
+              <templateId root='2.16.840.1.113883.10.20.1.33' />        <!-- (CCD) Social History Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13' />      <!-- (IHE) Simple Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.4' />    <!-- (IHE) Social History Observation -->
+              <effectiveTime value='20150701011300-0600'/>
+              <code code='77295-4'
+                codeSystem='2.16.840.1.113883.6.1'
+                codeSystemName='LOINC'
+                displayName='Frequency of water intake' />
+              <value xsi:type='INT' value='4'/>
+            </observation>
+          </entry>
+
+          <entry>
+            <observation classCode='OBS' moodCode='EVN'>
+              <templateId root='2.16.840.1.113883.10.20.1.33' />        <!-- (CCD) Social History Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13' />      <!-- (IHE) Simple Observation -->
+              <templateId root='1.3.6.1.4.1.19376.1.5.3.1.4.13.4' />    <!-- (IHE) Social History Observation -->
+              <effectiveTime value='20150701011300-0600'/>
+              <code code='77393-7'
+                codeSystem='2.16.840.1.113883.6.1'
+                codeSystemName='LOINC'
+                displayName='Yesterday, how many 8-ounce portions of milk did the patient drink' />
+              <value xsi:type='INT' value='0'/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+
+
+
+
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>

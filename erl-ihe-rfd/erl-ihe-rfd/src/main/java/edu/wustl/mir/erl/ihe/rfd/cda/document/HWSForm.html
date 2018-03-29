@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>${formId} Test Form</title>
+<meta
+   http-equiv="Content-Type"
+   content="text/html;charset=UTF-8"/>
+<script>
+
+//******************************************************************
+//Establishes the parameter name list for parameters in the form
+//******************************************************************
+ function parNames() {
+    var names = [
+       "sex", 
+       "race", 
+       "height", 
+       "weight", 
+       "ssbOther", 
+       "ssbSoftDrinks", 
+       "milk", 
+       "water", 
+       "insuranceType", 
+       "insuranceCompanyName"
+       ];
+    return names;
+ }
+
+
+//****************************************************************** 
+// Generates and sends the SOAP SubmitFormRequest
+//******************************************************************
+	function soap() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open('POST', '${destinationEndpointURL}', true);
+
+		var sr = '<?xml version="1.0" encoding="utf-8"?>\n'
+				+ '<soap:Envelope\n ' 
+            +       'xmlns:soap="http://www.w3.org/2003/05/soap-envelope"\n '
+            +       'xmlns:wsa="http://www.w3.org/2005/08/addressing"\n '
+            +       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n '
+            +       'xmlns:urn="urn:ihe:iti:rfd:2007">\n'
+				+ '<soap:Header>\n '
+				+ '<wsa:To>${destinationEndpointURL}</wsa:To>\n'
+				+ '<wsa:MessageID>urn:uuid:76A2C3D9BCD3AECFF31217932910053</wsa:MessageID>\n'
+				+ '<wsa:Action soap:mustUnderstand="1">urn:ihe:iti:2007:SubmitForm</wsa:Action>\n'
+				+ '</soap:Header>\n' 
+				
+				+ '<soap:Body>\n'
+				+ '<SubmitFormRequest xmlns="urn:ihe:iti:rfd:2007">\n'
+				+ '<testFormID xsi:type="xsd:string">${formId}</testFormID>\n'
+	            
+	            // Inserts returned values for parameters
+	            var pNames = parNames();
+	            for (i = 0; i < pNames.length; i++) {
+	               sr += submitStr(pNames[i]);
+	            }
+	            
+	            sr = sr            
+				+ '</SubmitFormRequest>\n'
+				+ '</soap:Body>\n' + '</soap:Envelope>\n';
+		xmlhttp.setRequestHeader('Content-Type', 'application/soap+xml');
+		xmlhttp.send(sr);
+	}
+
+	   //****************************************************************** 
+	   // Generates xml for a paramater:
+	   // <parName xsi:type="xsd:string">parValue</parName>\n
+	   //******************************************************************
+	   function submitStr(parName) {
+	      return '<' + parName + ' xsi:type="xsd:string">' + 
+	            document.getElementById(parName).value +
+	            '</' + parName + '>\n';
+	   }
+</script>
+</head>
+<body>
+   <form
+      name="Demo"
+      action=""
+      method="post">
+      <div>
+         HWS Test Form<br />
+         <table>
+         
+${sexSnippet}
+${raceSnippet}
+${heightSnippet}
+${weightSnippet}
+${ssbOtherSnippet}
+${ssbSoftDrinksSnippet}
+${milkSnippet}
+${waterSnippet}
+${insuranceTypeSnippet}
+${insuranceCompanyNameSnippet}
+         
+            <tr>
+               <td><input
+                  type="button"
+                  value="Send SOAP Request"
+                  onclick="soap()" /></td>
+            </tr>
+         </table>
+      </div>
+   </form>
+</body>
+</html>

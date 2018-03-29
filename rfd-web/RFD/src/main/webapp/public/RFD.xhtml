@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../resources/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+
+		<h:head>
+			<style>
+p {
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+p {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50em
+}
+</style>
+		</h:head>
+
+		<div align="center">
+			<h1>
+				<font size="10">RFD Testing System</font>
+			</h1>
+			<div align="center">
+				<p>
+					<font size="5"> The RFD Testing System is intended to
+						provide conformance tests for systems that implement actors in the
+						IHE Retrieve Form for Data Capture (RFD) integration profile as
+						well as other profiles that use RFD as a substrate. 
+					</font>
+				</p>
+			</div>
+		</div>
+		<br />
+
+		<table class="info" style="width: 750px" align="center">
+
+			<tr>
+				<td><p:outputLabel value="I want to test my:"
+						style="font-weight:bold" /></td>
+				<td><p:link outcome="FormFiller/index.xhtml"
+						value="Form Filler" /></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td><p:link outcome="FormManager/index.xhtml"
+						value="Form Manager"  /></td>
+			</tr>
+
+         <tr>
+            <td></td>
+            <td><p:link outcome="FormProcessor/index.xhtml"
+                  value="Form Processor" /></td>
+         </tr>
+
+			<tr>
+				<td></td>
+				<td><p:link outcome="FormReceiverCDAExporter/index.xhtml"
+						value="Form Receiver CDA Exporter" /></td>
+			</tr>
+		</table>
+		<hr/>
+			<div align="center">
+				<p>
+					<font size="4"> Additional documentation: 
+					</font>
+				</p>
+			</div>
+		<table class="info2" style="width: 750px" align="center">
+			<tr>
+				<td><a 
+					href="https://docs.imphub.org/x/JoAVAQ"
+					target="_blank">System description and documentation</a></td>
+			</tr>
+			<tr>
+				<td><a 
+					href="https://docs.imphub.org/x/CQDJ"
+					target="_blank">IHE Support</a></td>
+			</tr>
+		</table>
+
+	</ui:define>
+</ui:composition>
+</html>

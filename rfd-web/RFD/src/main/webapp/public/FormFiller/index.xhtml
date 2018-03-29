@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+
+		<h:head>
+			<style>
+.mainTable {
+	text-align: center;
+}
+
+.tableheader {
+	font-weight: bold;
+	background: #e1e1e1;
+}
+
+.altRow {
+	background: #E9F0F8;
+}
+</style>
+		</h:head>
+
+		<br />
+		<h:form>
+			<p:breadCrumb>
+				<p:menuitem value="Home" outcome="/public/RFD.xhtml" />
+				<p:menuitem value="Form Filler"
+					outcome="/public/FormFiller/index.xhtml" />
+			</p:breadCrumb>
+		</h:form>
+
+		<br />
+		<br />
+
+		<div align="center">
+			<h1>
+				<font size="10">RFD Form Filler Tests</font>
+			</h1>
+		</div>
+
+		<table class="mainTable" border="1" style="width: 1325px">
+			<tr class="tableheader">
+				<td>Test Name</td>
+				<td>RFD/Form Filler</td>
+            <td>HW</td>
+            <td>VRDR</td>
+				<td>BFDR</td>
+				<td>CRD</td>
+				<td>DSC</td>
+			</tr>
+			<tr>
+				<td><p:link
+						outcome="/public/FormFiller/RFD_0_10000.xhtml"
+						value="RFD_0_10000" /></td>
+				<td>Required</td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+
+			<tr class="altRow">
+				<td><p:link
+						outcome="/public/FormFiller/RFD-0-10100.xhtml"
+						value="RFD 0-10100"  
+                  disabled="true" /></td>
+				<td>Required</td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td><p:link
+						outcome="/public/FormFiller/RFD-0-11000.xhtml"
+						value="RFD 0-11000"  
+                  disabled="true" /></td>
+				<td>N/A</td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr class="altRow">
+				<td><p:link
+						outcome="/public/FormFiller/RFD-0-11100.xhtml"
+						value="RFD 0-11100"  
+                  disabled="true" /></td>
+				<td>N/A</td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td><p:link
+						outcome="/public/FormFiller/RFD_1_10000.xhtml"
+						value="RFD_1_10000" /></td>
+				<td>Required</td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+			<tr class="altRow">
+				<td><p:link
+						outcome="/public/FormFiller/RFD-1-11000.xhtml"
+						value="RFD 1-11000"  
+                  disabled="true" /></td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+				<td>N/A</td>
+			</tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/HW_1_10000_HWS_A"
+                  value="HW_1_10000_HWS_A" disabled="true"/></td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/HW_1_10000_HWS_B"
+                  value="HW_1_10000_HWS_B" disabled="true"/></td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/VRDR_1_10000_MS_VRDR_A"
+                  value="VRDR_1_10000_MS_VRDR_A"/></td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/VRDR_1_10000_MS_VRDR_B"
+                  value="VRDR_1_10000_MS_VRDR_B"/></td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/VRDR_1_10000_VRDR_A"
+                  value="VRDR_1_10000_VRDR_A"/></td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/VRDR_1_10000_VRDR_B"
+                  value="VRDR_1_10000_VRDR_B"/></td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/BFDR_E_1_10000_LDS_A"
+                  value="BFDR_E_1_10000_LDS_A"/></td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+         <tr class="altRow">
+            <td><p:link
+                  outcome="/public/FormFiller/BFDR_E_1_10000_LDS_B"
+                  value="BFDR_E_1_10000_LDS_B"/></td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>Required</td>
+            <td>N/A</td>
+            <td>N/A</td>
+         </tr>
+			<tr class="altRow">
+				<td><p:link
+						outcome="/public/FormFiller/RFD-CRD_Prepop.xhtml"
+						value="RFD CRD Prepop"  
+                  disabled="true" /></td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>Required</td>
+				<td>N/A</td>
+			</tr>
+			<tr>
+				<td><p:link
+						outcome="/public/FormFiller/RFD-DSC_Prepop.xhtml"
+						value="RFD DSC Prepop"  
+                  disabled="true" /></td>
+				<td>N/A</td>
+				<td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+				<td>N/A</td>
+				<td>Required</td>
+			</tr>
+
+		</table>
+	</ui:define>
+</ui:composition>
+</html>
+

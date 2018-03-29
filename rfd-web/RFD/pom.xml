@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+   http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>edu.wustl.mir.erl.ihe</groupId>
+	<artifactId>erl-ihe-rfd-webapp</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>ERL IHE RFD Simulator Webapp</name>
+	<description>RFD Testing Web GUI</description>
+
+	<url>http://maven.apache.org</url>
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	<properties>
+		<primefaces.version>5.2</primefaces.version>
+		<erl.rfd.basedir>${basedir}/../../erl-ihe-rfd/erl-ihe-rfd</erl.rfd.basedir>
+		<erl.rfd.targetdir>erl-ihe-rfd</erl.rfd.targetdir>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.atmosphere</groupId>
+			<artifactId>atmosphere-runtime</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wustl.mir.erl.ihe</groupId>
+			<artifactId>erl-ihe-rfd</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wustl.mir.erl.ihe</groupId>
+			<artifactId>erl-ihe-web-utilities</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.wustl.mir.erl.ihe</groupId>
+			<artifactId>erl-ihe-ws</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>RFD</finalName>
+
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+			<resource>
+            <targetPath>${erl.rfd.targetdir}/runDirectory</targetPath>
+				<directory>${erl.rfd.basedir}/src/main/resources/runDirectory</directory>
+			</resource>
+			<resource>
+            <targetPath>${erl.rfd.targetdir}/jaxws</targetPath>
+				<directory>${erl.rfd.basedir}/src/jaxws</directory>
+			</resource>
+			<resource>
+            <targetPath>${erl.rfd.targetdir}/schema</targetPath>
+				<directory>${erl.rfd.basedir}/src/schema</directory>
+			</resource>
+			<resource>
+            <targetPath>${erl.rfd.targetdir}/wsdl</targetPath>
+				<directory>${erl.rfd.basedir}/src/wsdl</directory>
+			</resource>
+		</resources>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>1.0-alpha-6</version>
+			</extension>
+		</extensions>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>
+
+<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+	<version>3.8.1</version> <scope>test</scope> </dependency> <dependency> <groupId>org.apache.poi</groupId> 
+	<artifactId>poi</artifactId> <version>3.8</version> </dependency> <dependency> 
+	<groupId>org.apache.poi</groupId> <artifactId>poi-ooxml</artifactId> <version>3.8</version> 
+	</dependency> <dependency> <groupId>org.glassfish</groupId> <artifactId>javax.faces</artifactId> 
+	<version>2.1.23</version> </dependency> <dependency> <groupId>org.apache.httpcomponents</groupId> 
+	<artifactId>httpcore-nio</artifactId> <version>4.0-beta1</version> </dependency> -->

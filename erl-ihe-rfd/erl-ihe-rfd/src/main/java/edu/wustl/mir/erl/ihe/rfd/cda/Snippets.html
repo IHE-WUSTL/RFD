@@ -1,0 +1,240 @@
+<!-- **********************************************************************
+     * html snippets file. Each snippet is begun with a snippet name, which
+     * may contain capital letters [A-Z], decimal digits [0-9], dashes "-", and 
+     * underscores "_" and be the only thing on its line. All text until the
+     * next snippet name will be stored under that name. Blank lines are
+     * ignored. Everything before the first snippet name is ignored. 
+     * Everything on a line after double forward slashes "//" is ignored, 
+     * including the double slashes. html format comments (like this) which
+     * are part of a snippet will be included with that snippet. Mapping
+     * parameters are all caps contained in square brackets, for example,
+     * [PN]. Recognized mappings:
+     * [PN] the parName of current data element. (All snippets).
+     * [[DATAELEMENTS] The concatenated snippets for all DataElements in a 
+     *    SequenceDataElement. (Valid only in this type.)
+     * [VARIABLES]  The concatenated snippets for all variables in a 
+     *    function. (Valid only in this type.)
+     * The default snippet for a data element is that snippet whose name is
+     * the class in upper case. To use any other snippet with a data 
+     * element, use the element's loadSnippet or setSnippet methods.
+     ********************************************************************** -->
+
+DATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+                id='[PN]' 
+                type='text'
+                name='[PN]'
+                value='${[PN]Value}'/> 
+            </td>
+       </tr> 
+
+ADDRDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               size='35'
+               value='${[PN]Value}'/> 
+            </td>
+      </tr> 
+
+CODEDDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               value='${[PN]Value}'/> 
+            </td>
+            <td>${[PN]DisplayName} ${[PN]CodeSystem} ${[PN]CodeSystemName}</td>
+      </tr> 
+      
+PERSONNAMEDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               size='35'
+               value='${[PN]Value}'/> 
+            </td>
+      </tr> 
+      
+INTERVALDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               size='35'
+               value='${[PN]LowValue} - ${[PN]HighValue}'/> 
+            </td>
+      </tr> 
+
+VALUEDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               value='${[PN]value}'/> 
+            </td>
+            <td>${[PN]unit} ${[PN]type}</td>
+      </tr> 
+
+IDDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               value='${[PN]Value}'/> 
+            </td>
+            <td>${[PN]Extension}</td>
+      </tr> 
+
+CODDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               size='35'
+               value='${[PN]CauseOfDeath} - ${[PN]OnsetToDeathInterval}'/> 
+            </td>
+      </tr> 
+
+PROCEDUREDATAELEMENT
+      <tr> 
+         <td>${[PN]Element}:</td>
+            <td><input 
+               id='[PN]' 
+               type='text'
+               name='[PN]'
+               size='5'
+               value='${[PN]Value}'/> 
+            </td>
+      </tr> 
+
+SEQUENCEDATAELEMENT
+[DATAELEMENTS]
+
+FUNCTIONDATAELEMENT 
+      <!-- Result of the function calculation  --> 
+      <tr>
+         <td>${[PN]Element}:</td>
+         <td><input
+            id='[PN]'
+            type='text'
+            name='[PN]'
+            size='35'
+            value='${[PN]Value}'/>
+         </td>
+         <!-- Show detail button (when detail off)  -->
+         <td id='[PN]Off'>
+            <input
+               type='button'
+               value='Show Derivation Details'
+               onclick="swap('[PN]On', '[PN]Off')"/>
+         </td>
+         <!-- Detail   -->
+         <td id='[PN]On'>
+            <table 
+               style='border:1px solid; background-color: MintCream'>
+               <tr> 
+                  <td colspan='2'>Function: ${[PN]Function}</td>  
+               </tr>
+               
+[VARIABLEXPATHS]
+
+               <tr align="center">
+                   <td style='border:1px solid'><b>Logic Variable</b></td>
+                   <td colspan='2' style='border:1px solid'><b>Value</b></td>
+               </tr>
+               
+[VARIABLES]
+               
+                <tr>
+                   <td><input
+                      type="button"
+                      value="Hide Derivation Details"
+                      onclick="swap('[PN]Off', '[PN]On')" />
+                   </td>
+                </tr>
+             </table>
+          </td>
+       </tr>
+       
+DATAELEMENT_VARIABLE
+      <!-- Data Element used in Sequence Function Variable -->
+      <tr>
+          <td style='border:1px solid'>${[PN]Element}</td>
+          <td style='border:1px solid'>${[PN]Value}</td>
+      </tr>
+       
+CODEDDATAELEMENT_SEQUENCE_VARIABLE
+      <!-- Coded Data Element used in Sequence Function Variable -->
+      <tr>
+          <td style='border:1px solid'>${[PN]Element}</td>
+          <td style='border:1px solid'>${[PN]Value}</td>
+          <td style='border:1px solid'>${[PN]DisplayName} ${[PN]CodeSystem} ${[PN]CodeSystemName}</td>
+      </tr>
+      
+PROCEDUREDATAELEMENT_SEQUENCE_VARIABLE
+      <!-- Procedure Data Element used in Sequence Function Variable -->
+      <tr>
+          <td style='border:1px solid'>${[PN]Element}</td>
+          <td style='border:1px solid'>${[PN]Value}</td>
+      </tr>
+      
+VARIABLE_XPATH
+      <!-- Snippet used to display the XPath of a variable -->
+      <tr>
+         <td colspan='3' style='border:1px solid'><b>${Suffix}</b> - ${XpathExpression}</td>
+      </tr>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+   

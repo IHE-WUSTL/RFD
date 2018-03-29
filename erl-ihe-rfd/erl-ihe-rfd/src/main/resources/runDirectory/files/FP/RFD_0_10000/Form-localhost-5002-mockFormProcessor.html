@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- 
+Form used when testing the transaction against a SOAPUI Mock FormProcessor
+listening on the localhost at port 5002 with the path mockFormProcessor
+ -->
+<html>
+<head>
+<title>RFD_0_10000 Test Form</title>
+<meta
+   http-equiv="Content-Type"
+   content="text/html;charset=UTF-8">
+<script type="text/javascript">
+	function soap(age, bmi) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open('POST', 'http://localhost:5002/mockFormProcessor', true);
+
+		// build SOAP request
+		var sr = '<?xml version="1.0" encoding="utf-8"?>\n'
+				+ '<soap:Envelope\n ' +
+                    'xmlns:soap="http://www.w3.org/2003/05/soap-envelope"\n ' +
+                    'xmlns:wsa="http://www.w3.org/2005/08/addressing"\n ' +
+                    'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n ' +
+                    'xmlns:urn="urn:ihe:iti:rfd:2007">\n'
+				+ '<soap:Header>\n '
+				+ '<wsa:To>http://golden.erl.wustl.edu:3302/FormReceiver</wsa:To>\n'
+				+ '<wsa:MessageID>urn:uuid:76A2C3D9BCD3AECFF31217932910053</wsa:MessageID>\n'
+				+ '<wsa:Action soap:mustUnderstand="1">urn:ihe:iti:2007:SubmitForm</wsa:Action>\n'
+				+ '</soap:Header>\n' 
+				+ '<soap:Body>\n'
+				+ '<SubmitFormRequest xmlns="urn:ihe:iti:rfd:2007">\n'
+				+ '<testFormID xsi:type="xsd:string">RFD_0_10000</testFormID>\n'
+				+ '<age xsi:type="xsd:string">' + age + '</age>\n'
+				+ '<bmi xsi:type="xsd:string">' + bmi + '</bmi>\n'
+				+ '</SubmitFormRequest>\n' 
+				+ '</soap:Body>\n'
+				+ '</soap:Envelope>\n';
+
+		// Send the POST request
+		xmlhttp.setRequestHeader('Content-Type', 'application/soap+xml');
+		xmlhttp.send(sr);
+		// send request
+		// ...
+	}
+</script>
+</head>
+<body>
+   <form
+      name="Demo"
+      action=""
+      method="post">
+      <div>
+         Age: <input id="age" type="text" name="age"/><br/>
+         BMI: <input id="bmi" type="text"  name="bmi" /><br/> 
+         <input type="button" value="Send SOAP Request"
+            onclick="soap(document.getElementById('age').value, 
+            		        document.getElementById('bmi').value)"/>
+      </div>
+   </form>
+</body>
+</html>

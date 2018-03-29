@@ -1,0 +1,35 @@
+.red {
+	background-color: red!important;
+	background-image: none!important;
+}
+
+.normal {
+	background-color: beige!important;
+	background-image: none!important;
+}
+
+.orange {
+	background-color: orange!important;
+	background-image: none!important;
+}
+
+.palegreen {
+	background-color: palegreen!important;
+	background-image: none!important;
+}
+
+.powderblue {
+   background-color: powderblue!important;
+   background-image: none!important;
+}
+
+.peachpuff {
+   background-color: peachpuff!important;
+   background-image: none!important;
+}
+
+.testData {
+	margin-bottom:20px;
+   background-color: peachpuff!important;
+   background-image: none!important;
+}

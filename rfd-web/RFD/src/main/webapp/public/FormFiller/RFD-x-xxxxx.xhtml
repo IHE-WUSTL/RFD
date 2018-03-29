@@ -1,0 +1,128 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+</style>
+</h:head>
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+
+		<h:form>
+			<p:breadCrumb>
+				<p:menuitem value="Home" outcome="/public/RFD" />
+				<p:menuitem value="Form Filler" outcome="/public/FormFiller/index" />
+				<p:menuitem value="RFD x-xxxxx" outcome="RFD-x-xxxxx.xhtml" />
+			</p:breadCrumb>
+		</h:form>
+
+		<br />
+		<br />
+		<div align="center">
+			<h1>
+				<font size="10">RFD x-xxxxx</font>
+			</h1>
+		</div>
+
+		<div align="left" style="margin-left: 50px">
+			<h2>Special Instructions</h2>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Description</h2>
+			<p>In this test, the Form Filler can submit a request for form
+				with any combination of prepop data and workflow data. It is just a
+				tool to allow the Form Filler developer to see the parameters sent
+				in a request. This test uses a specific formID.</p>
+			<p>
+				<ul>
+					<li>The Form Filler submits the Request for Form (ITI-34)
+						using this value for formID: RFD x-xxxxx</li>
+					<li>The Form Manager simulator returns a response based on the
+						parameters supplied by the Form Filler.</li>
+					<li>The Form Manager simulator performs no mapping of pre-pop
+						data to the form data.</li>
+					<li>The test system evaluates the request and provides a
+						report for the user. For each parameter, the test system
+						indicates:
+						<ul>
+							<li>Present or not present/nul/empty string</li>
+							<li>If present, is it properly formatted</li>
+							<li>If present, the actual value of the parameter</li>
+						</ul>
+					</li>
+					<li>The test system also allows the user to search the Form
+						Receiver simulator and/or Form Archiver simulator to determine if
+						the forms were properly submitted or archive.</li>
+				</ul>
+			</p>
+
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Evaluation</h2>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Test Steps</h2>
+			<p>
+				<ol>
+					<li>Submit a request for your form to the FormManager
+						Simulator located at http://host:3205/RookieFormManager/. Be sure
+						that your request follows the guidelines specified above in the
+						Description.</li>
+					<li>If your request has been formatted properly the Form
+						Manager simulator should either return a URL of the form or a
+						response saying that the requested form has not been found.</li>
+					<li>If you received a URL, render the form. Complete the form
+						and submit. The form should be transmitted to the Form Receiver
+						simulator.</li>
+					<li>To ensure the form was processed correctly, use the
+						evaluate form request below that will assess the request and
+						provide a report. The report will detail if in the form there is a
+						present or not present/null/empty string. If present, the report
+						will detail if it is properly formatted, and also if it's the
+						actual value of the parameter.</li>
+					<li>To check if the form was successfully submitted, use the
+						evaluate retrieve form below.</li>
+					<li>To check if the form was successfully archived, use the
+						evaluate archive form below.</li>
+				</ol>
+			</p>
+			<h:form>
+				<p:commandButton value="Submit Form Request" id="submit"
+					actionListener="#{buttonView.buttonAction}" ajax="false" />
+			&nbsp;
+			&nbsp;
+			<p:commandButton value="Evaluate Form Request" id="evaluate"
+					actionListener="#{buttonView.buttonAction}" ajax="false" />
+			&nbsp;
+			&nbsp;
+			<p:commandButton value="Evaluate Retrieve Form" id="retrieve"
+					actionListener="#{buttonView.buttonAction}" ajax="false" />
+			&nbsp;
+			&nbsp;
+			<p:commandButton value="Evaluate Archive Form" id="archive"
+					actionListener="#{buttonView.buttonAction}" ajax="false" />
+			</h:form>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Supplemental Materials</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>References to Standards</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Testable Assertions</h2>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

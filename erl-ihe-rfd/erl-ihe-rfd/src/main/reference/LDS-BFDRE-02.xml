@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:n1="urn:hl7-org:v3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:voc="urn:hl7-org:v3/voc"
+  xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+  
+  <!-- This 02 document is similar to the 01 document -->
+  <!-- Differences are:
+    1) This document triggers CDIP.
+  -->
+
+  <realmCode code="US"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+
+  <!-- PCC TF Vol2 6.3.1.1.3 -->
+  <templateId extension="Medical Document" root="1.3.6.1.4.1.19376.1.5.3.1.1.1"/>
+  <!-- PCC TF Vol2 6.3.1.2 -->
+  <templateId extension="Medical Summary" root="1.3.6.1.4.1.19376.1.5.3.1.1.2"/>
+  <!-- Labor and Delivery Profile Supplement Vol 2: 6.3.1.B -->
+  <templateId extension="Labor and Delivery Summary" root="1.3.6.1.4.1.19376.1.5.3.1.1.21.1.2"/>
+
+  <id root="1.3.6.1.4.1.21367.2015.1.3.101" extension="LDSBFDRE_2015-01"/>
+
+  <code code="57057-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+    displayName="Labor and delivery summary"/>
+
+  <title>Labor and Delivery Summary</title>
+
+  <effectiveTime value="20150729140000-0600"/>
+
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+
+  <languageCode code="en-US"/>
+
+  <recordTarget>
+    <patientRole>
+      <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2015.1.3.101.2"/>
+      <addr>
+        <streetAddressLine>4 John Adams Street</streetAddressLine>
+        <city>Chicago</city>
+        <state>IL</state>
+        <postalCode>12345</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom nullFlavor="UNK" use="HP"/>
+      <patient>
+        <name use="L">
+          <given qualifier="CL">Samantha</given>
+          <family>Labor</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19850727"/>
+        <raceCode code="101" codeSystem="2.16.840.1.113883.6.238" displayName="White"/>
+        <languageCommunication>
+          <languageCode nullFlavor="UNK"/>
+        </languageCommunication>
+      </patient>
+      <providerOrganization>
+        <id extension="21_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.777.3"/>
+        <name>Mount Vernon Hospital</name>
+        <telecom value="tel:+1-(345)999-8765" use="WP"/>
+        <addr>
+          <streetAddressLine>456 Estate Street</streetAddressLine>
+          <city>Chicago</city>
+          <state>IL</state>
+          <postalCode>12345</postalCode>
+          <country>US</country>
+        </addr>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+
+
+  <author>
+    <time value="20150729140000-0600"/>
+    <assignedAuthor>
+      <id root="1.3.6.1.4.1.21367.2015.1.3.101.3" extension="22_2010-1"/>
+      <code code="SELF" codeSystem="2.16.840.1.113883.5.111" displayName="Self" codeSystemName="HL7"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK" use="WP"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Ellen</given>
+          <family>Jefferson</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+
+  <author>
+    <time value="20150729140000-0600"/>
+    <assignedAuthor>
+      <id extension="23_2010-1" root="1.3.6.1.4.1.21367.1.2.777.3"/>
+      <addr>
+        <streetAddressLine>3 Aaron Burr Way</streetAddressLine>
+        <city>Chicago</city>
+        <state>IL</state>
+        <postalCode>12345</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:+1-(555)777-1234" use="WP"/>
+      <assignedAuthoringDevice>
+        <softwareName>Care Ware v1</softwareName>
+      </assignedAuthoringDevice>
+      <representedOrganization>
+        <id extension="30_2010-1" root="1.3.6.1.4.1.21367.1.2.777.3"/>
+        <name>HIT Solutions</name>
+        <telecom value="tel:+1-(555) 888-1234" use="WP"/>
+        <addr>
+          <streetAddressLine>123 Oak Street</streetAddressLine>
+          <city>Oak Brook</city>
+          <state>IL</state>
+          <postalCode>60523</postalCode>
+          <country>US</country>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="26_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.777.3"/>
+        <name>Greater Chicago HIE</name>
+        <telecom value="tel:+1-(555)777-1234" use="WP"/>
+        <addr>
+          <streetAddressLine>790 Jorie Blvd</streetAddressLine>
+          <city>Oak Brook</city>
+          <state>IL</state>
+          <postalCode>60523</postalCode>
+          <country>US</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <authenticator>
+    <time value="20150729140000-0600"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id extension="22_2010-1" root="1.3.6.1.4.1.21367.2015.1.3.101.3"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK" use="WP"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Ellen</given>
+          <family>Jefferson</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20150727140000-0600"/>
+        <high value="20150728140000-0600"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.3"/>
+        <templateId root="2.16.840.1.113883.3.88.11.32.4"/>
+        <functionCode code="PP" codeSystem="2.16.840.1.113883.12.443"/>
+        <time>
+          <low/>
+          <high/>
+        </time>
+        <assignedEntity>
+          <id root="1.3.6.1.4.1.21367.2010.1.2.777.3" extension="32_2010-01"/>
+          <code code="260000000X" codeSystem="2.16.840.1.113883.6.101"
+            codeSystemName="ProviderCodes" displayName="Mount Vernon Hospitalist"/>
+          <addr nullFlavor="UNK"/>
+          <telecom nullFlavor="UNK" use="WP"/>
+          <assignedPerson>
+            <name>
+              <prefix>Dr.</prefix>
+              <given>Adam</given>
+              <family>Smith</family>
+            </name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <componentOf>
+    <encompassingEncounter>
+      <id root="1.3.6.1.4.1.21367.2015.1.3.101.3" extension="31_2010-1"/>
+      <effectiveTime>
+        <low value="20150727140000-0600"/>
+        <high value="20150728140000-0600"/>
+      </effectiveTime>
+      <location>
+        <healthCareFacility>
+          <id root="1.3.6.1.4.1.21367.2015.1.3.101.4" extension="31_2010-1"/>
+          <location>
+            <name>West Chicago Hospital</name>
+            <addr>
+              <streetAddressLine>800 Jorie Blvd</streetAddressLine>
+              <city>Oak Brook</city>
+              <state>IL</state>
+              <postalCode>60523</postalCode>
+              <country>US</country>
+            </addr>
+          </location>
+        </healthCareFacility>
+      </location>
+    </encompassingEncounter>
+  </componentOf>
+
+  <component>
+    <structuredBody>
+      <!-- 
+        R   Hospital Admission Diagnosis      1.3.6.1.4.1.19376.1.5.3.1.3.3
+        R2  Admission Medication History      1.3.6.1.4.1.19376.1.5.3.1.3.20
+        R   Chief Complaint                   1.3.6.1.4.1.19376.1.5.3.1.1.13.2.1
+        R   Transport Mode                    1.3.6.1.4.1.19376.1.5.3.1.1.10.3.2
+        R2  Assessment and Plan               1.3.6.1.4.1.19376.1.5.3.1.1.13.2.5
+        R   Pain Assessment Panel             1.3.6.1.4.1.19376.1.5.3.1.1.20.2.4
+        R   Coded Results                     1.3.6.1.4.1.19376.1.5.3.1.3.28
+        R2  Coded Antenatal Testing and Surveillance  1.3.6.1.4.1.19376.1.5.3.1.1.21.2.5.1
+        O   Coded History of Infection        1.3.6.1.4.1.19376.1.5.3.1.1.16.2.1.1.1
+        O   Pregnancy History                 1.3.6.1.4.1.19376.1.5.3.1.1.5.3.4
+        R   History of Present Illness        1.3.6.1.4.1.19376.1.5.3.1.3.4
+        R   History of Past Illness           1.3.6.1.4.1.19376.1.5.3.1.3.8
+        R   Active Problems                   1.3.6.1.4.1.19376.1.5.3.1.3.6
+        R2  Coded Advance Directives          1.3.6.1.4.1.19376.1.5.3.1.3.35
+        R2  Birth Plan                        1.3.6.1.4.1.19376.1.5.3.1.1.21.2.1
+        R   Allergies and Other Adverse Reactions 1.3.6.1.4.1.19376.1.5.3.1.3.13
+        R   Coded Detailed Physical Examination 1.3.6.1.4.1.19376.1.5.3.1.1.9.15.1
+        R   Estimated Delivery Date           1.3.6.1.4.1.19376.1.5.3.1.1.11.2.2.1
+        R   Medications Administered          1.3.6.1.4.1.19376.1.5.3.1.3.21
+        R2  Intravenous Fluids Administered   1.3.6.1.4.1.19376.1.5.3.1.1.13.2.6
+        R2  Intake and Output                 1.3.6.1.4.1.19376.1.5.3.1.1.20.2.3
+        R2  Estimated Blood Loss              1.3.6.1.4.1.19376.1.5.3.1.1.9.2
+        R   History of Blood Transfusion      1.3.6.1.4.1.19376.1.5.3.1.1.9.12
+        R2  History of Surgical Procedures    1.3.6.1.4.1.19376.1.5.3.1.1.16.2.2
+        R   Labor and Delivery Events         1.3.6.1.4.1.19376.1.5.3.1.1.21.2.3
+        R   Newborn Delivery Information      1.3.6.1.4.1.19376.1.5.3.1.1.21.2.4
+      -->
+
+      <!-- Active Problems -->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <id root=" " extension=" "/>
+          <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113882.6.1"
+            codeSsytemName="LOINC"/>
+          <title>PROBLEM LIST</title>
+          <text> CHAM Observation. GON Observation </text>
+          <!-- (CHAM) Chlamydial infection -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20130228"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.93 -->
+                  <value xsi:type="CD" code="105629000" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Chlamydial infection"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (GON) Gonorrhea -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20120228"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.6071 -->
+                  <value xsi:type="CD" code="15628003" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Gonorrhea"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (HEPB) Hepatitis B -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110128"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.96 -->
+                  <value xsi:type="CD" code="66071002" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Type B viral hepatitis"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+
+          <!-- (HEPC) Hepatitis C -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110328"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.97 -->
+                  <value xsi:type="CD" code="128302006" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Chronic hepatitis C"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (SYPH) Syphilis -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110328"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.98 -->
+                  <value xsi:type="CD" code="76272004" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Syphilis"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (LM) Listeria -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110428"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.147 -->
+                  <value xsi:type="CD" code="4241002" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Listeriosis"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (GBS) Group B Streptococcus -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110428"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.166 -->
+                  <value xsi:type="CD" code="426933007" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Streptococcus agalactiae infection"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (CMV) Cytomegalovirus -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110528"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.167 -->
+                  <value xsi:type="CD" code="28944009" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Cytomegalovirus infection"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (B19) Parvovirus -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110528"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.168 -->
+                  <value xsi:type="CD" code="186748004" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Parvovirus infection (disorder)"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+          <!-- (TOXO) Toxoplasmosis -->
+          <entry>
+            <!-- Problem Concern Entry -->
+            <act classCode="ACT" moodeCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="" extension=""/>
+              <code nullFlavor="NA"/>
+              <statusCode code="active"/>
+              <effectiveTime>
+                <low value="20110528"/>
+              </effectiveTime>
+              <entryRelationship type="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.169 -->
+                  <value xsi:type="CD" code="187192000" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Toxoplasmosis"/>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+
+        </section>
+      </component>
+
+
+      <!-- Newborn Delivery  -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.4"/>
+          <id root=" " extension=" "/>
+          <code code="57075-4" displayName="Newborn delivery information from newborn"
+            codeSystem="2.16.840.1.113882.6.1" codeSsytemName="LOINC"/>
+          <title>Newborn delivery information from newborn</title>
+          <text> TBD </text>
+          <subject>
+            <relatedSubject>
+              <code code="NCHILD" displayName="Natural Child" codeSystem="2.16.840.1.113883.5.111"
+                codeSystemName="RoleCode"/>
+              <!-- This ID is intended to satisfy IRECNUM -->
+              <id extension="West-Chicago-Hospital" root="MRN:152698"/>
+              <!-- The addr element is intended to satisfy the requirements for FLOC, CNAME, CNTY0 -->
+              <addr>
+                <streetAddressLine>801 Jorie Blvd</streetAddressLine>
+                <city>Oak Brook Terrace</city>
+                <state>IL</state>
+                <!-- County Code 17043 is DuPage County, IL -->
+                <county>17043</county>
+                <postalCode>60523</postalCode>
+                <country>US</country>
+              </addr>
+              <subject>
+                <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2015.1.3.101.30"/>
+                <name>
+                  <given>Benjamin</given>
+                  <given>Tyler</given>
+                  <family>Labor</family>
+                  <suffix>Jr.</suffix>
+                </name>
+                <administrativeGenderCode code="M" displayName="Male"
+                  codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGender"/>
+                <birthTime value="20150727183000-0600"/>
+              </subject>
+            </relatedSubject>
+
+          </subject>
+
+
+          <!-- Coded Detailed Physical Examination Section -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.15.1"/>
+              <id root="" extension=""/>
+              <code code="29545-1" displayName="PHYSICAL EXAMINATION"
+                codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+              <title>Coded Detailed Physical Examination</title>
+              <text>5 minute APGAR score: 5, 10 minute APGAR score: 6, Birth Weight: 2268 gm (5
+                lbs), Anenencephalus</text>
+              <!-- Coded Vital Signs Section -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.25"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.2"/>
+                  <id root=" " extension=" "/>
+                  <code code="8716-3" displayName="VITAL SIGNS" codeSystem="2.16.840.1.113883.6.1"
+                    codeSystemName="LOINC"/>
+                  <title>Coded Vital Signs</title>
+                  <text ID="cdpevitaltext">
+                    <content ID="birthweight">Birth weight: 2268 gm (5 lbs)</content>
+                  </text>
+                  <entry>
+                    <organizer classCode="CLUSTER" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.32"/>
+                      <templateId root="2.16.840.1.113883.10.20.1.35"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.1"/>
+                      <id nullFlavor="NI"/>
+                      <code code="46680005" codeSystem="2.16.840.1.113883.6.96"
+                        displayName="Vital Signs" codeSystemName="SNOMED CT"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime value="20150727183100-0600"/>
+                      <component typeCode="COMP">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13.2"/>
+                          <templateId root="2.16.840.1.113883.10.20.1.31"/>
+                          <id nullFlavor="NI"/>
+                          <code code="8339-4" codeSystem="2.16.840.1.113883.6.1"
+                            displayName="Birth weight Measured" codeSystemName="LOINC"/>
+                          <text>
+                            <reference value="#birthweight"/>
+                          </text>
+                          <statusCode code="completed"/>
+                          <effectiveTime value="20150727183100-0600"/>
+                          <value xsi:type="PQ" value="2268" unit="g"/>
+                          <methodCode code="8339-4" codeSystem="2.16.840.1.113883.6.1"
+                            displayName="Birth weight Measured" codeSystemName="LOINC"/>
+                        </observation>
+                      </component>
+                    </organizer>
+                  </entry>
+                </section>
+              </component>
+
+              <!-- General Appearance Section -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.16"/>
+                  <code code="10210-3" displayName="GENERAL STATUS"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <title>General Appearance</title>
+                  <text/>
+                  <!-- Problem Observations -->
+                  <!-- APGAR5: APGAR score at 5 minutes -->
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.12 -->
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                      <id root="" extension=""/>
+                      <code code="9274-2" displayName="Score5M post birth:Fcn:Pt:Patient:Ord:Apgar"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="INT" value="5"/>
+                      <text>
+                        <reference value=""/>
+                      </text>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low value="20150727183500-0600"/>
+                        <high value="20150727183500-0600"/>
+                      </effectiveTime>
+                    </observation>
+                  </entry>
+
+                  <!-- APGAR10: APGAR score at 10 minutes -->
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.13 -->
+                  <entry>
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.28"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                      <id root="" extension=""/>
+                      <code code="9271-8" displayName="Score10M post birth:Fcn:Pt:Patient:Ord:Apgar"
+                        codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="INT" value="6"/>
+                      <text>
+                        <reference value=""/>
+                      </text>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low value="20150727183500-0600"/>
+                        <high value="20150727183500-0600"/>
+                      </effectiveTime>
+                    </observation>
+                  </entry>
+
+
+                  <!-- CDH: Defect in the formation of the diaphragm allowing herniation ... -->
+                  <entry>
+                    <!-- Problem Concern Entry -->
+                    <act classCode="ACT" moodeCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                      <id root="" extension=""/>
+                      <code nullFlavor="NA"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low value="20150727193600-0600"/>
+                        <high value="20150727193600-0600"/>
+                      </effectiveTime>
+                      <entryRelationship type="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                          <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.55 -->
+                          <value xsi:type="CD" code="17190001" codeSystem="2.16.840.1.113883.6.96"
+                            displayName="Congenital diaphragmatic hernia"/>
+                        </observation>
+                      </entryRelationship>
+                    </act>
+                  </entry>
+
+
+                  <!-- CDIC: Suspected chromosomal disorder karyotype confirmed -->
+                  <!-- Two observations are needed. The first observation is the suspected disorder -->
+                  <!-- The second observation is the confirmation -->
+                  <entry>
+                    <!-- Problem Concern Entry -->
+                    <act classCode="ACT" moodeCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                      <id root="" extension=""/>
+                      <code nullFlavor="NA"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low  value="20150727183600-0600"/>
+                        <high value="20150727183600-0600"/>
+                      </effectiveTime>
+                      <entryRelationship type="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                          <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.57 -->
+                          <value xsi:type="CD" code="409709004" codeSystem="2.16.840.1.113883.6.96"
+                            displayName="Chromosomal disorder"/>
+                        </observation>
+                      </entryRelationship>
+                    </act>
+                  </entry>
+                  
+                  <entry>
+                    <!-- Problem Concern Entry -->
+                    <act classCode="ACT" moodeCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                      <id root="" extension=""/>
+                      <code nullFlavor="NA"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low  value="20150727223600-0600"/>
+                        <high value="20150727223600-0600"/>
+                      </effectiveTime>
+                      <entryRelationship type="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                          <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.57 -->
+                          <value xsi:type="CD" code="442124003" codeSystem="2.16.840.1.113883.6.96"
+                            displayName="Karyotype evaluation abnormal (finding)"/>
+                        </observation>
+                      </entryRelationship>
+                    </act>
+                  </entry>
+
+                </section>
+              </component>
+
+              <!-- Visible Implanted Medical Devices -->
+              <!-- Integumentary System -->
+              <!-- Head -->
+              <!-- Eyes -->
+              <!-- Ears, Nose, Mouth and Throat -->
+              <!-- Ears -->
+              <!-- Mouth, Throat, and Teeth -->
+              <!-- Neck -->
+              <!-- Endocrine System -->
+              <!-- Thorax and Lungs -->
+              <!-- Chest Wall -->
+              <!-- Breasts -->
+              <!-- Heart -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.29"/>
+                  <code code="10200-4" displayName="HEART" codeSystem="2.16.840.1.113883.6.1"
+                    codeSystemName="LOINC"/>
+                  <title>Heart System</title>
+                  <text>Congenital Heart Disease: Functional single ventricle</text>
+                  <!-- CCHD: Entry for Congenital Heart Disease: Functional single ventricle -->
+                  <entry>
+                    <!-- Problem Concern Entry -->
+                    <act classCode="ACT" moodeCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                      <id root="" extension=""/>
+                      <code nullFlavor="NA"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low value="20150727193500-0600"/>
+                        <high value="20150727193500-0600"/>
+                      </effectiveTime>
+                      <entryRelationship type="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                          <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.54 -->
+                          <value xsi:type="CD" code="443379009" codeSystem="2.16.840.1.113883.6.96"
+                            displayName="Functional single ventricle"/>
+                        </observation>
+                      </entryRelationship>
+                    </act>
+                  </entry>
+                </section>
+
+              </component>
+              <!-- Respiratory System -->
+              <!-- Abdomen -->
+              <!-- Lymphatic System -->
+              <!-- Vessels -->
+              <!-- Musculoskeletal System -->
+
+              <!-- Neurologic System -->
+              <component>
+                <section>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.9.35"/>
+                  <code code="10202-0" displayName="NEUROLOGIC SYSTEM"
+                    codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <title>Neurologic System</title>
+                  <text>Anencephalus</text>
+                  <!-- ANEN: Entry for Anencephalus -->
+                  <entry>
+                    <!-- Problem Concern Entry -->
+                    <act classCode="ACT" moodeCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                      <id root="" extension=""/>
+                      <code nullFlavor="NA"/>
+                      <statusCode code="completed"/>
+                      <effectiveTime>
+                        <low value="20150727183000-0600"/>
+                        <high value="20150727183000-0600"/>
+                      </effectiveTime>
+                      <entryRelationship type="SUBJ">
+                        <observation classCode="OBS" moodCode="EVN">
+                          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                          <!-- Value Set Reference: https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.53 -->
+                          <value xsi:type="CD" code="89369001" codeSystem="2.16.840.1.113883.6.96"
+                            displayName="Anencephalus"/>
+                        </observation>
+                      </entryRelationship>
+                    </act>
+                  </entry>
+                </section>
+              </component>
+
+
+              <!-- Genitalia -->
+              <!-- Rectum -->
+              <!-- Extremities -->
+              <!-- Pelvis -->
+
+            </section>
+          </component>
+
+          <!-- Active Problems Section -->
+          <component>
+            <section>
+              <templateId root="2.16.840.1.113883.10.20.1.11"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+              <id root="" extension=""/>
+              <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"/>
+              <title>Problem List</title>
+              <text>Seizure, 2016.07.27 1930, 15 seconds, Breast feeding at 20150727 22:30:00 </text>
+
+              <entry>
+                <!-- Problem Concern Entry -->
+                <act classCode="ACT" moodeCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                  <id root="" extension=""/>
+                  <code nullFlavor="NA"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727193000-0600"/>
+                    <high value="20150727193015-0600"/>
+                  </effectiveTime>
+                  <entryRelationship type="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                      <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.10 -->
+                      <value xsi:type="CD" code="91175000" codeSystem="2.16.840.1.113883.6.96"
+                        displayName="Seizure"/>
+                    </observation>
+                  </entryRelationship>
+                </act>
+              </entry>
+
+              <!-- BFED, Breastfed Infant -->
+              <entry>
+                <!-- Problem Concern Entry -->
+                <act classCode="ACT" moodeCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.27"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+                  <id root="" extension=""/>
+                  <code nullFlavor="NA"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727223000-0600"/>
+                    <high value="20150727223500-0600"/>
+                  </effectiveTime>
+                  <entryRelationship type="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                      <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.41 -->
+                      <value xsi:type="CD" code="169741004" codeSystem="2.16.840.1.113883.6.96"
+                        displayName="Breast fed (finding)"/>
+                    </observation>
+                  </entryRelationship>
+                </act>
+              </entry>
+
+
+            </section>
+          </component>
+
+          <!-- Procedures and Interventions Section -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+              <id root="" extension=""/>
+              <code code="29554-3" displayName="PROCEDURE" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"/>
+              <title>Procedures and Interventions</title>
+              <text>
+                <content ID="Procedure_1">Procedure: Assisted breathing</content>
+                <content ID="Procedure_2">Procedure: Karyotype Determination</content>
+              </text>
+              <!-- Procedure for assisted ventilation -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+                  <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+                  <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2015.1.3.101.30.1"/>
+                  <!-- Value Set Reference: https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7156 -->
+                  <code code="266700009" displayName="Assisted breating"
+                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                  <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                    Coded Results section narrative text. -->
+                  <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                    The ID (and thus the reference) is case-sensitive. -->
+                  <text>
+                    <reference value="#Procedure_1"/>
+                  </text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727183100-0600"/>
+                    <high value="20150728024500-0600"/>
+                  </effectiveTime>
+                </procedure>
+              </entry>
+
+              <!-- Procedure for Karyotype Determination -->
+              <entry>
+                <procedure classCode="PROC" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+                  <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+                  <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2015.1.3.101.30.2"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.154 -->
+                  <code code="444309000"
+                    displayName="Determination of karyotype from blood specimen (procedure)"
+                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                  <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                    Coded Results section narrative text. -->
+                  <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                    The ID (and thus the reference) is case-sensitive. -->
+                  <text>
+                    <reference value="#Procedure_2"/>
+                  </text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727184500-0600"/>
+                    <high value="20150727184500-0600"/>
+                  </effectiveTime>
+                </procedure>
+              </entry>
+
+            </section>
+          </component>
+
+          <!-- Medications Administered -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.21"/>
+              <id root="" extension=""/>
+              <code/>
+              <title/>
+              <text/>
+            </section>
+          </component>
+
+          <!-- Event Outcomes -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.9"/>
+              <id root="" extension=""/>
+              <code/>
+              <title/>
+              <text/>
+            </section>
+          </component>
+
+          <!-- Coded Event Outcomes -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.7.3.1.1.13.7"/>
+              <id root="" extension=""/>
+              <code code="42545-4" displayName="EVENT OUTCOME" codeSystem="2.16.840.1.113882.6.1"
+                codeSytemName="LOINC"/>
+              <title>Coded Event Outcome</title>
+              <text>Birth trauma of fetus, Neonatal death 20150727 23:30:00 </text>
+              <!-- One or more simple observations -->
+
+              <!-- Birth trauma oberservation -->
+              <!-- Triggers BINJ Element -->
+              <entry>
+                <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.9 -->
+                  <value xsi:type="CD" code="56110009" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Birth trauma of fetus"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727183000-0600"/>
+                    <high value="20150727183000-0600"/>
+                  </effectiveTime>
+                </observation>
+              </entry>
+
+              <!-- Neonatal Death -->
+              <!-- Triggers ILIV Element -->
+              <entry>
+                <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.149 -->
+                  <value xsi:type="CD" code="6254007" codeSystem="2.16.840.1.113883.6.96"
+                    displayName="Neonatal death (finding)"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727233000-0600"/>
+                    <high value="20150727233000-0600"/>
+                  </effectiveTime>
+                </observation>
+              </entry>
+
+
+              <!-- Patient Transfer -->
+              <!-- Transfer to NICU -->
+              <!-- Triggers NICU Element -->
+              <!-- Need help from QRPH committee on the proper encoding -->
+
+
+
+            </section>
+          </component>
+
+          <!-- Coded Results -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28"/>
+              <id root="" extension=""/>
+              <code/>
+              <title/>
+              <text/>
+            </section>
+          </component>
+
+
+          <!-- Intake and Output -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.20.2.3"/>
+              <id root="" extension=""/>
+              <code/>
+              <title/>
+              <text/>
+            </section>
+          </component>
+
+        </section>
+      </component>
+
+
+
+
+
+
+      <!-- Labor and Delivery  -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.21.2.3"/>
+          <id root=" " extension=" "/>
+          <code code="57074-7" displayName="Labor and delivery process"
+            codeSystem="2.16.840.1.113882.6.1" codeSsytemName="LOINC"/>
+          <title>Labor and delivery process</title>
+          <text>
+            <content ID="LD_Procedure_1">Procedure: Induced Labor</content>
+          </text>
+
+          <!-- Procedures and Interventions Section -->
+          <component>
+            <section>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+              <id root="" extension=""/>
+              <code code="29554-3" displayName="PROCEDURE" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"/>
+              <title>Procedures and Interventions</title>
+              <text>
+                <content ID="LD_Procedure_1">Procedure: Induced Labor</content>
+                <content ID="LD_Procedure_2">Procedure: Steroids</content>
+              </text>
+              <!-- INDL: Procedure for induced labor -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+                  <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+                  <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2015.1.3.101.30.1"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=1.3.6.1.4.1.19376.1.7.3.1.1.13.8.34 -->
+                  <code code="31208007" displayName="Medical induction of labor"
+                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                  <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                    Coded Results section narrative text. -->
+                  <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                    The ID (and thus the reference) is case-sensitive. -->
+                  <text>
+                    <reference value="#LD_Procedure_1"/>
+                  </text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727143100-0600"/>
+                    <high value="20150727163100-0600"/>
+                  </effectiveTime>
+                </procedure>
+              </entry>
+
+              <!-- STER: Procedure for steroids -->
+              <entry>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.29"/>
+                  <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+                  <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+                  <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+                  <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2015.1.3.101.30.1"/>
+                  <!-- Value Set Reference: http://phinvads.cdc.gov/vads/ViewValueSet.action?id=662DD89B-99B2-E311-8837-0017A477041A -->
+                  <code code="434611000124106"
+                    displayName="Maternal antenatal administration of corticosteroids for fetal lung maturation (situation)"
+                    codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                  <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                    Coded Results section narrative text. -->
+                  <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                    The ID (and thus the reference) is case-sensitive. -->
+                  <text>
+                    <reference value="#LD_Procedure_2"/>
+                  </text>
+                  <statusCode code="completed"/>
+                  <effectiveTime>
+                    <low value="20150727143200-0600"/>
+                    <high value="20150727143200-0600"/>
+                  </effectiveTime>
+                </procedure>
+              </entry>
+            </section>
+          </component>
+        </section>
+      </component>
+
+
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.9"/>
+          <!-- Payers (CCD) -->
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.7"/>
+          <!-- Payers Section -->
+          <id root="1.3.6.1.4.1.21367.2015.1.1" extension=""/>
+          <code code="48768-6" displayName="Payment Sources" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <text>Payer: Blue Moon HMO</text>
+          <entry>
+            <act classCode="ACT" moodCode="DEF">
+              <templateId root="2.16.840.1.113883.10.20.1.20"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.17"/>
+              <!-- IHE PCC Coverage Entry -->
+              <id root="1.3.6.1.4.1.21367.2015.1.1.1" extension=""/>
+              <statusCode code="completed"/>
+              <code code="48768-6" displayName="Payment Sources" codeSystem="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"/>
+              <entryRelationship typeCode="COMP" inversionInd="false">
+                <sequenceNumber value="1"/>
+                <!-- Need to satisfy CCD CONF-47: A coverage activity SHALL contain one or more sources of information, as defined in section 5.2 Source. -->
+
+                <!-- The following act is a policy activity (CCD 3.1.2.1.2) -->
+                <act classCode="ACT" moodCode="EVN">
+                  <!-- CCD CONF-48, 49, 50 -->
+                  <templateId root="2.16.840.1.113883.10.20.1.26"/>
+                  <id root="BMHMO-ID" extension=""/>
+                  <statusCode code="completed"/>
+                  <!-- Does the code that follows and corresponding codeSystem OID match author's intent? -->
+                  <code code="611" displayName="BC Managed Care - HMO"
+                    codeSystem="2.16.840.1.114222.4.11.3591"
+                    codeSystemName="Source of Payment Typology (PHDSC)"/>
+                  <performer typeCode="PRF">
+                    <!-- CCD CONF-56 -->
+                    <assignedEntity>
+                      <id root="BMHMO-ID" extension=""/>
+                      <!-- SMM 2015.07.01 I am pretty sure my representation of the name of the payer is not correct -->
+                      <representedOrganization>
+                        <name>Blue Moon HMO</name>
+                      </representedOrganization>
+                    </assignedEntity>
+                  </performer>
+                  <participant typeCode="COV">
+                    <!-- CCD CONF-58 -->
+                    <participantRole>
+                      <id root="SMM_Subscriber_ID" extension=""/>
+                      <code code="FAMDEP" displayName="Family Dependent"
+                        codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 RoleCode"/>
+                      <!-- CCD CONF-60 -->
+                    </participantRole>
+                    <time>
+                      <!-- CCD CONF-62 -->
+                      <low value="20150101010000-0600"/>
+                      <high value="20181231235959-0600"/>
+                    </time>
+
+                  </participant>
+                  <participant typeCode="HLD">
+                    <!-- CCD CONF-63 -->
+                    <id root="SMM_Subscriber_ID" extension=""/>
+                    <time>
+                      <!-- CCD CONF-65 -->
+                      <low value="20150101010000-0600"/>
+                      <high value="20181231235959-0600"/>
+                    </time>
+                  </participant>
+                  <entryRelationship typeCode="REF">
+                    <!-- CCD CONF-66 -->
+                    <act classCode="ACT" moodCode="DEF">
+                      <!-- CCD CONF-67 -->
+                      <!-- CCD CONF-67: I have no idea how to represent this -->
+                      <!-- I want to represent the description. See next line -->
+                      <!-- ....or an Act, with Act [@classCode = 'ACT'] and Act [@moodCode = 'DEF'], representing a description of the coverage plan. -->
+                    </act>
+                  </entryRelationship>
+                </act>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>

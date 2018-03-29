@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+
+		<h:form>
+			<p:breadCrumb>
+				<p:menuitem value="Home" outcome="/public/RFD" />
+				<p:menuitem value="Form Manager" outcome="/public/FormManager/index" />
+				<p:menuitem value="RFD 0-10100" outcome="RFD-0-10100.xhtml" />
+			</p:breadCrumb>
+		</h:form>
+
+		<br />
+		<br />
+		<div align="center">
+			<h1>
+				<font size="10">RFD 0-10100</font>
+			</h1>
+		</div>
+
+		<div align="left" style="margin-left: 50px">
+			<h2>Special Instructions</h2>
+			<p>
+			Your Form Filler under test will need to be configured for this test to return a form with Form ID: RFD 0-10100
+			The URL of the Form Receiver simulator is (you need to fill this in).
+			No pre-population data is supplied.
+			</p>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Description</h2>
+			<p>
+				This test requires that the Form Manager responds to an ITI-34
+				transaction with the following data:
+				<ol>
+					<li>Pre-population data is null</li>
+					<li>workflowData.formID: RFD 0-10100</li>
+					<li>workflowData.encodedResponse: false, meaning the Form
+						Filler is requesting the URL of a form that can be opened in a web
+						browser</li>
+					<li>workflowData.archiveURL: empty string</li>
+					<li>workflowData.context: null</li>
+					<li>workflowData.instanceID: null</li>
+				</ol>
+			</p>
+			<p>
+				<ul>
+					<li>The Form Filler submits the Request for Form (ITI-34)
+						using this value for formID: RFD 0-10100</li>
+					<li>The Form Manager simulator returns the URL of a form.</li>
+					<li>The Form Filler submits the form to the Form Receiver
+						simulator.</li>
+					<li>The test system evaluates the request for all required
+						properties (both positive and negative).</li>
+					<li>The testing system examines the Form Receiver simulator for
+					    successful submission of the form. The testing system retrieves the
+					    form that has been submitted and displays the values of all data elements 
+					    in the submitted format.</li>
+				</ul>
+			</p>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Evaluation</h2>
+			<p>
+				<ol>
+					<li>Open the URL returned by the Form Manager under test in a modern web browser. 
+						Make sure that you can successfully open the form and complete the data entry. </li>
+					<li>When you submit the form, make sure your web browser reports no errors.
+						Specifically, the form should be submitted to the Form Receiver simulator.</li>
+					<li>Use the testing system to find the form data submitted to the Form Receiver simulator. 
+						Display the data element/value pairs and check for consistency with the values you entered.</li>
+				</ol>
+			</p>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Test Steps</h2>
+			<p>
+			<ol>
+			<li>Send a Retrieve Form request to your Form Manager using the Submit Form Request button below.</li>
+			<li>After you system returns the URL of a form, that URL should be displayed below under the button 
+			for submitting the form. Copy/paste that URL in a Web Browser.</li>
+			<li>Complete the form and submit. The form should be transmitted to the Form Receiver simulator.</li>
+			<li>View the submitted form by using the View Submitted Form below. You should see
+				element/value pairs that match the data you entered in the form.</li>
+			
+			</ol>
+			</p>
+			<h:form>
+				<p:commandButton value="Submit Form Request" id="submit"
+					actionListener="#{buttonView.buttonAction}" ajax="false" />
+			&nbsp;
+			&nbsp;
+			<p:commandButton value="Evaluate Form Request" id="evaluate"
+					actionListener="#{buttonView.buttonAction}" ajax="false" />
+			</h:form>
+			<br/>
+			<p>
+				URL of form:
+			</p>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Supplemental Materials</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>References to Standards</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Testable Assertions</h2>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- 
+overrides.xml may be used to override the value of a program parameter on
+startup or to pass additiona parameter value pairs to a program on startup,
+generally in a development environment. Operation:
+1. Software looks for overrides.xml file in runDirectory on startup.
+2. If found, looks for an element "configuration.Hosts.hostName", where hostName
+   is the result of InetAddress.getLocalHost().getHostName().
+3. If found, places the attribute value pairs from that element in the program
+   parameters map, replacing any previously existing values. For example, the
+   attribute value pair 'profile="dev"' would place a parameter named profile 
+   with the value "dev", running the software in the dev profile on that host.
+ -->
+<configuration>
+   <Hosts>
+     <golden profile="dev"/> 
+   </Hosts>
+</configuration>

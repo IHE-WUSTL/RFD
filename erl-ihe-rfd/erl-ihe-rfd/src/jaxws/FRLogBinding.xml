@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- ******************************************************************************** 
+   Standard external binding file used to add HTTP and SOAP message recording 
+   to web services generated wsdl to java without modifying the wsdl file itself. 
+   Note that the bindings element wsdlLocation attribute value must be set to 
+   the name of the wsdl file. 
+   ******************************************************************************** -->
+<bindings 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   wsdlLocation="../wsdl/RFDFormReceiver.wsdl" 
+   xmlns="http://java.sun.com/xml/ns/jaxws">
+   <bindings node="wsdl:definitions">
+      <javaee:handler-chains xmlns:javaee="http://java.sun.com/xml/ns/javaee">
+         <javaee:handler-chain>
+            <javaee:handler>
+               <javaee:handler-class>edu.wustl.mir.erl.ihe.ws.handlers.SOAPServerHandler
+               </javaee:handler-class>
+            </javaee:handler>
+               <javaee:handler>
+               <javaee:handler-class>edu.wustl.mir.erl.ihe.ws.handlers.HTTPServerHandler
+               </javaee:handler-class>
+            </javaee:handler> 
+         </javaee:handler-chain>
+      </javaee:handler-chains>
+   </bindings>
+</bindings>

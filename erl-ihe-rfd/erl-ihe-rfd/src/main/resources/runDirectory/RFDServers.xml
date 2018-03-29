@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+
+	<!-- parameters read by Util class during initialization <Util/> -->
+
+	<FileServers>
+		<FileServer id="FS" port="3300" fileDirectoryName="files"
+			formDirectoryName="forms" storeToDB="false">
+			<RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+		</FileServer>
+	</FileServers>
+	
+	<ValueSets>
+	  <WorkBook name="LDSValueSets.xlsx"  sheetNames="Value Set Members"/>
+     <WorkBook name="VRDRValueSets.xlsx" sheetNames="Value Set Members"/>
+	</ValueSets>
+
+	<WSTests useServerThreadPooling="false">
+		<!-- This is default keystore same element within <FormManager> overrides -->
+		<keystore name="gazelle-gold-2012142-cert.keystore" password="diaglyph" />
+		<!-- port on localhost used by RMI registry calling WSClient.runTest -->
+		<ClientRMI port="1099" />
+		<StoreSOAPMessages on="true" rootMessageDirectoryName="messages"/>
+
+		<WSEndpoint id="FMS" name="RFD Form Manager Simulator"
+			class="edu.wustl.mir.erl.ihe.rfd.servers.FormManagerSimulator" 
+			port="3301" path="/FormManager" secure="false" storeToDB="false">
+			<RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FM"/>
+			<Test formId="RFD_0_10000"
+				class="edu.wustl.mir.erl.ihe.rfd.tests.FF.RFD_0_10000.FormManager"/>
+			<Test formId="RFD_1_10000"
+				class="edu.wustl.mir.erl.ihe.rfd.tests.FF.RFD_1_10000.FormManager"/>
+         <Test formId="HW_1_10000_HWS_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.HW_1_10000_HWS_A.FormManager"/>
+         <Test formId="HW_1_10000_HWS_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.HW_1_10000_HWS_B.FormManager"/>
+         <Test formId="HW_1_10000_HWS_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.HW_1_10000_HWS_I.FormManager"/>
+         <Test formId="VRDR_1_10000_MS_VRDR_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_MS_VRDR_A.FormManager"/>
+         <Test formId="VRDR_1_10000_MS_VRDR_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_MS_VRDR_B.FormManager"/>
+         <Test formId="VRDR_1_10000_MS_VRDR_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_MS_VRDR_I.FormManager"/>
+         <Test formId="VRDR_1_10000_VRDR_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_VRDR_A.FormManager"/>
+         <Test formId="VRDR_1_10000_VRDR_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_VRDR_B.FormManager"/>
+         <Test formId="VRDR_1_10000_VRDR_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_VRDR_I.FormManager"/>
+         <Test formId="BFDR_E_1_10000_LDS_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.BFDR_E_1_10000_LDS_A.FormManager"/>
+         <Test formId="BFDR_E_1_10000_LDS_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.BFDR_E_1_10000_LDS_B.FormManager"/>
+         <Test formId="BFDR_E_1_10000_LDS_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.BFDR_E_1_10000_LDS_I.FormManager"/>
+		</WSEndpoint>
+		
+		<WSEndpoint id="FRST" name="RFD Form Receiver Simulator - Test"
+			class="edu.wustl.mir.erl.ihe.rfd.servers.FormReceiverSimulator"
+			port="3302" path="/FormReceiver" secure="false" storeToDB="false">
+			<RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FR-T"/>
+			<Test formId="RFD_0_10000"
+			   class="edu.wustl.mir.erl.ihe.rfd.tests.FF.RFD_0_10000.FormReceiver"/>
+         <Test formId="RFD_1_10000"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.RFD_1_10000.FormReceiver"/>
+         <Test formId="HW_1_10000_HWS_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.HW_1_10000_HWS_A.FormReceiver"/>
+         <Test formId="HW_1_10000_HWS_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.HW_1_10000_HWS_I.FormReceiver"/>
+         <Test formId="HW_1_10000_HWS_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.HW_1_10000_HWS_B.FormReceiver"/>
+         <Test formId="VRDR_1_10000_MS_VRDR_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_MS_VRDR_A.FormReceiver"/>
+         <Test formId="VRDR_1_10000_MS_VRDR_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_MS_VRDR_B.FormReceiver"/>
+         <Test formId="VRDR_1_10000_MS_VRDR_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_MS_VRDR_I.FormReceiver"/>
+         <Test formId="VRDR_1_10000_VRDR_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_VRDR_A.FormReceiver"/>
+         <Test formId="VRDR_1_10000_VRDR_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_VRDR_B.FormReceiver"/>
+         <Test formId="VRDR_1_10000_VRDR_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.VRDR_1_10000_VRDR_I.FormReceiver"/>
+         <Test formId="BFDR_E_1_10000_LDS_A"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.BFDR_E_1_10000_LDS_A.FormReceiver"/>
+         <Test formId="BFDR_E_1_10000_LDS_B"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.BFDR_E_1_10000_LDS_B.FormReceiver"/>
+         <Test formId="BFDR_E_1_10000_LDS_I"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FF.BFDR_E_1_10000_LDS_I.FormReceiver"/>
+		</WSEndpoint>
+
+		<WSEndpoint id="FRSR" name="RFD Form Receiver Simulator - Record"
+			class="edu.wustl.mir.erl.ihe.rfd.servers.FormReceiverSimulator"
+			port="3303" path="/FormReceiver" secure="false" storeToDB="false">
+			<RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FR-R"/>
+		</WSEndpoint>
+
+      <WSEndpoint id="FPS" name="RFD Form Processor Simulator"
+         class="edu.wustl.mir.erl.ihe.rfd.servers.FormProcessorSimulator" 
+         port="3304" path="/FormProcessor" secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FP"/>
+         <Test formId="RFD_0_10000"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FP.RFD_0_10000.FormProcessor">
+         </Test>
+         <Test formId="RFD_1_10000"
+            class="edu.wustl.mir.erl.ihe.rfd.tests.FP.RFD_1_10000.FormProcessor">
+         </Test>
+      </WSEndpoint>
+		
+		<WSClient id="CFF-1" testStep="FM.RFD_0_10000/1" name="FM.RFD_0_10000 Form Filler"
+			class="edu.wustl.mir.erl.ihe.rfd.tests.FM.RFD_0_10000.FormFiller"
+			secure="false" storeToDB="false">
+			<RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+		</WSClient>
+      
+      <WSClient id="CFF-2" testStep="FM.RFD_1_10000/1" name="FM.RFD_1_10000 Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FM.RFD_1_10000.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-3" testStep="FP.RFD_0_10000/1" name="FP.RFD_0_10000 Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FP.RFD_0_10000.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FP"/>
+      </WSClient>
+      
+      <WSClient id="CFF-4" testStep="FP.RFD_1_10000/1" name="FP.RFD_1_10000 Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FP.RFD_1_10000.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FP"/>
+      </WSClient>
+      
+      <WSClient id="CFF-5" testStep="FM.HW_1_10000_HWS_I/1" name="FM.HW_1_10000_HWS_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FM.HW_1_10000_HWS_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-6" testStep="FM.VRDR_1_10000_MS_VRDR_I/1" name="FM.VRDR_1_10000_MS_VRDR_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FM.VRDR_1_10000_MS_VRDR_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-12" testStep="FM.VRDR_1_10000_VRDR_I/1" name="FM.VRDR_1_10000_VRDR_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FM.VRDR_1_10000_VRDR_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-9" testStep="FM.BFDR_E_1_10000_LDS_I/1" name="FM.BFDR_E_1_10000_LDS_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FM.BFDR_E_1_10000_LDS_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-7" testStep="FP.HW_1_10000_HWS_I/1" name="FP.HW_1_10000_HWS_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FP.HW_1_10000_HWS_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-8" testStep="FP.VRDR_1_10000_MS_VRDR_I/1" name="FP.VRDR_1_10000_MS_VRDR_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FP.VRDR_1_10000_MS_VRDR_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-13" testStep="FP.VRDR_1_10000_VRDR_I/1" name="FP.VRDR_1_10000_VRDR_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FP.VRDR_1_10000_VRDR_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-10" testStep="FP.BFDR_E_1_10000_LDS_I/1" name="FP.BFDR_E_1_10000_LDS_I Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FP.BFDR_E_1_10000_LDS_I.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FF"/>
+      </WSClient>
+      
+      <WSClient id="CFF-11" testStep="FRCE.BFDR_E_1_10000_LDS_A/1" name="FRCE.BFDR_E_1_10000_LDS_A Form Filler"
+         class="edu.wustl.mir.erl.ihe.rfd.tests.FRCE.BFDR_E_1_10000_LDS_A.FormFiller"
+         secure="false" storeToDB="false">
+         <RMI on="true" host="localhost" port="1099" name="WSLogRMI" />
+         <StoreSOAPMessages on="true" subMessageDirectoryName="FRCE"/>
+      </WSClient>
+
+	</WSTests>
+
+<!-- 
+	<JDBC>
+		<DataBase LogicalDbname="wslog" AdministrativeDbName="postgres"
+			DriverClassName="org.postgresql.Driver" ConnectionString="jdbc:postgresql://localhost/wslog"
+			UserId="wslog" Password="development" />
+
+		<DataBase LogicalDbname="postgres" DriverClassName="org.postgresql.Driver"
+			ConnectionString="jdbc:postgresql://localhost/postgres" UserId="postgres"
+			Password="development" />
+	</JDBC>
+
+ -->
+ 
+</configuration>

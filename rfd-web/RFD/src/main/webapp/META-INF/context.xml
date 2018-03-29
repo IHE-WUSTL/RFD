@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+   If a project containing a META-INF/context.xml file is added to one 
+	of these Tomcat servers in WTP, the context configuration found in this file 
+	will be included in the context for that project when server.xml, or separate 
+	context XML file in WTP 2.0.x and later, is file copied as part of publishing 
+	the server. Typically when using m2e-wtp, the file should be 
+	src/main/webapp/META-INF/context.xml. 
+	When adding the configuration from the META-INF/context.xml file, all child 
+	elements of the <Context> are copied as well as its attributes, excluding 
+	the "path" and "docBase" attributes. 
+	from:
+	wiki.eclipse.org/WTP_Tomcat_FAQ#
+	   How_do_I_specify_the_Tomcat_context_configuration_for_my_Web_Application
+-->
+
+<Context>
+
+	<!-- disable session persistence across Tomcat restarts -->
+
+	<Manager pathname="" />
+
+
+</Context>

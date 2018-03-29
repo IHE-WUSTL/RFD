@@ -1,0 +1,10 @@
+<SubmitFormRequest xmlns="urn:ihe:iti:rfd:2007"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <testFormID xsi:type="xsd:string">${formId}</testFormID>
+   <fName  xsi:type="xsd:string">BJC Children's Hospital</fName>
+   <irecnum  xsi:type="xsd:string">BR-549</irecnum>
+   <idob  xsi:type="xsd:string">20150312</idob>
+   <floc  xsi:type="xsd:string">St. Louis</floc>
+   <bplace  xsi:type="xsd:string">1</bplace>
+   <cham  xsi:type="xsd:string">N</cham>
+</SubmitFormRequest>

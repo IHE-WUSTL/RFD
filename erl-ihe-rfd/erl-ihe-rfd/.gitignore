@@ -1,0 +1,22 @@
+# ignore these directories
+bin/
+target/
+test/
+# ignore dirty editor temp files
+*.snapshot
+
+# ignore MAC directory params files
+.DS_Store
+
+# ignore jvm error log files
+hs_err_pid*.log
+
+# ignore Eclipse files generated from Maven 
+.settings/ 
+.metadata/ 
+.classpath 
+.project 
+
+# ignore common editor tmp files 
+*.swp 
+*~  

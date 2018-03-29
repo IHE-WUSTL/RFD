@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+                   
+<!-- ***********************************************************************
+		  Standard environment variables used in ERL web applications. Processed
+		  in Util.initializeApplication. Entries are required only if the default
+		  values are not appropriate:  
+		  
+		  applicationName: which would override the default application name 
+		  passed to WebUtil.initializeWebApp from the ApplicationBean.
+		  
+		  runDirectory: name of a directory in the context which contains data
+		  needed to control the operation of the web application, including the
+		  .ini properties file, the log4j properties file and other resources.
+		  Defaults to the application name.
+		  
+		  profile: run profile for the application, for example, DEV, EU.
+		  defaults to empty String.
+
+          log4jProperties: The name of the log4j properties file. The default is
+          log4j.${profile}.properties in the runDirectory if it exists, or 
+          log4j.properties in the runDirectory.
+          
+          xmlProperties: The name of the application properties file. The default
+          is ${applicationName}.${profile}.xml in the runDirectory if it exists,
+          or ${applicationName}.xml in the runDirectory.
+          
+          Additional parameters may be added to those passed in the web.xml for
+          specific applications. See the application documentation for details.
+		  ***********************************************************************
+	-->
+	
+	<env-entry>
+		<env-entry-name>profile</env-entry-name>
+		<env-entry-type>java.lang.String</env-entry-type>
+		<env-entry-value>dev</env-entry-value>
+	</env-entry>
+
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <servlet>
+        <servlet-name>Push Servlet</servlet-name>
+        <servlet-class>org.primefaces.push.PushServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Push Servlet</servlet-name>
+        <url-pattern>/primepush/*</url-pattern>
+    </servlet-mapping>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+<filter>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <filter-class>org.primefaces.webapp.filter.FileUploadFilter
+    </filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>PrimeFaces FileUpload Filter</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+</filter-mapping>
+  
+</web-app>
+
+
+
+

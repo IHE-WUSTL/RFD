@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+</style>
+</h:head>
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+
+		<h:form>
+			<p:breadCrumb>
+				<p:menuitem value="Home" outcome="/public/RFD" />
+				<p:menuitem value="Form Filler" outcome="/public/FormFiller/index" />
+				<p:menuitem value="RFD CRD Prepop"
+					outcome="RFD-CRD_Prepop.xhtml" />
+			</p:breadCrumb>
+		</h:form>
+
+		<br />
+		<br />
+		<div align="center">
+			<h1>
+				<font size="10">RFD CRD Prepop</font>
+			</h1>
+		</div>
+
+		<div align="left" style="margin-left: 50px">
+			<h2>Special Instructions</h2>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Description</h2>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Evaluation</h2>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Test Steps</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Supplemental Materials</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>References to Standards</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Testable Assertions</h2>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

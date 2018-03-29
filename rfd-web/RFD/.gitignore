@@ -1,0 +1,43 @@
+# **************************************
+# This is a simple .gitignore for maven
+# projects which are stored "source only"
+# **************************************
+
+# **************************************
+# ignore these directories in root and
+# all their contents and subdirectories
+# **************************************
+
+# This is the maven target directory
+/target/
+
+# These are Eclipse working directories.
+/.settings/
+/.metadata/
+
+# **************************************
+# ignore files matching these patterns 
+# anywhere in the directory tree
+# **************************************
+
+# This is a file Macs put in their
+# directories for format data 
+.DS_Store
+
+# ignore jvm error log files
+hs_err_pid*.log
+
+# These are vi backup and swap files.
+*~
+*.swp
+
+# **************************************
+# ignore files matching these patters
+# only in the root directory
+# **************************************
+
+# This is Eclipse project file
+/.project
+
+# This is Eclipse classpath file
+/.classpath

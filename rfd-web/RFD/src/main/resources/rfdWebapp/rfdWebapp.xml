@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+	<!-- parameters read by Util class during initialization -->
+	<Util  />
+  <RMI on="true" port="1099" name="WSLogRMIReceiver"/>
+</configuration>

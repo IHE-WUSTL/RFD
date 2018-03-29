@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<style>
+button.link {
+	background: none;
+	border: none;
+}
+
+button.contact {
+	background: none;
+	border: none;
+}
+
+button.issue {
+	background: none;
+	border: none;
+}
+</style>
+	</h:head>
+
+	<div>
+		<br /> <br /> <br />
+		<h:form rendered="false">
+			<button class="link" disabled="true" >About</button>
+			&nbsp;
+			<button class="contact" disabled="true" >Contact Us</button>
+			&nbsp;
+			<button class="issue" disabled="true" >Issue Tracker</button>
+		</h:form>
+	</div>
+</ui:composition>

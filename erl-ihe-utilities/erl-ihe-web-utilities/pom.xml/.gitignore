@@ -1,0 +1,14 @@
+# ignore all bin & target directories
+bin/
+target/
+# ignore dirty editor temp files
+*.snapshot
+# ignore MAC directory params files
+.DS_Store
+
+# ignore Eclipse file generated from Maven
+.settings/
+.classpath
+
+# ignore all files ending with ~
+*~ 

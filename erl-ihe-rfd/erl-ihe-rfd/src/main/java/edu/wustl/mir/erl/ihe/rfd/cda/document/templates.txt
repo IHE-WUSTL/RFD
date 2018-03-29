@@ -1,0 +1,67 @@
+DataElement table row: ? is parName
+
+            <tr>
+               <td>${?Element}:</td>
+               <td><input
+                  id="?"
+                  type="text"
+                  name="?"
+                  value="${?Value}" /></td>
+            </tr>
+
+CodedDataElement table row: ? is parName
+
+            <tr>
+               <td>${?Element}:</td>
+               <td><input
+                  id="?"
+                  type="text"
+                  name="?"
+                  value="${?Value}" /></td>
+               <td>${?DisplayName} ${?CodeSystem} ${?CodeSystemName}</td>
+            </tr>
+            
+ValueDataElement table row: ? is parName
+
+            <tr>
+               <td>${?Element}:</td>
+               <td><input
+                  id="?"
+                  type="text"
+                  name="?"
+                  value="${?Value}" /></td>
+                  <td>unit: ${?Unit} ${?Type}</td>
+            </tr>
+            
+IntervalDataElement table row: ? is parName
+
+            <tr>
+               <td>${?Element}:</td>
+               <td><input
+                  id="?"
+                  type="text"
+                  name="?"
+                  value="${?LowValue} <br/>${?HighValue}"/></td>
+            </tr>
+            
+PersonNameDataElement table row: ? is parName
+
+            <tr>
+               <td>${?Element}:</td>
+               <td><input
+                  id="?"
+                  type="text"
+                  name="?"
+                  value="${?Prefix} ${?Given} ${?Family} ${?Suffix}"/></td>
+            </tr>
+            
+AddrDataElement table row: ? is parName
+
+            <tr>
+               <td>${?Element}:</td>
+               <td><input
+                  id="?"
+                  type="text"
+                  name="?"
+                  value="${?StreetAddressLine} ${?City} ${?State} ${?PostalCode} ${?Country}"/></td>
+            </tr>

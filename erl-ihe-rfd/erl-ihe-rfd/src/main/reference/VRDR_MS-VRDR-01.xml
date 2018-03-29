@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:n1="urn:hl7-org:v3"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:voc="urn:hl7-org:v3/voc"
+  xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd">
+
+  <realmCode code="US"/>
+  <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+
+  <!-- PCC TF Vol2 6.3.1.1 -->
+  <templateId extension="IHE Medical Document" root="1.3.6.1.4.1.19376.1.5.3.1.1.1"/>
+  <!-- PCC TF Vol2 6.3.1.1 -->
+  <templateId extension="IHE Medical Summary" root="1.3.6.1.4.1.19376.1.5.3.1.1.2"/>
+  <!-- QRPH VRDR Supplement, 3:6.3.1.D2.5 -->
+  <templateId extension="IHE Medical Summary for VRDR" root="1.3.6.1.4.1.19376.1.7.3.1.1.23.2"/>
+
+  <id root="1.3.6.1.4.1.21367.2015.1.10.2" extension="VRDR_MS-VRDR_2015-1"/>
+
+  <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+    displayName="Discharge summarization note"/>
+
+  <title>Medical Summary for VRDR</title>
+
+  <effectiveTime value="20150707140000-0600"/>
+
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+
+  <languageCode code="en-US"/>
+
+  <recordTarget>
+    <patientRole>
+      <id extension="30_2015-1" root="1.3.6.1.4.1.21367.2010.1.2.888.2"/>
+      <id extension="499-99-9999" root="2.16.840.1.113883.4.1"/>
+      <addr>
+        <streetAddressLine>2 John Adams Street</streetAddressLine>
+        <city>Chicago</city>
+        <state>IL</state>
+        <postalCode>12345</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom nullFlavor="UNK" use="HP"/>
+      <patient>
+        <name use="L">
+          <given qualifier="CL">George</given>
+          <family>Green</family>
+        </name>
+        <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19641120"/>
+        <raceCode code="101" codeSystem="2.16.840.1.113883.6.238" displayName="White"/>
+        <languageCommunication>
+          <languageCode nullFlavor="UNK"/>
+        </languageCommunication>
+      </patient>
+      <providerOrganization>
+        <id extension="21_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.888.3"/>
+        <name>Mount Vernon Hospital</name>
+        <telecom value="tel:+1-(345)999-8765" use="WP"/>
+        <addr>
+          <streetAddressLine>456 Estate Street</streetAddressLine>
+          <city>Chicago</city>
+          <state>IL</state>
+          <postalCode>12345</postalCode>
+          <country>US</country>
+        </addr>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+
+
+  <author>
+    <time value="20150707140000-0600"/>
+    <assignedAuthor>
+      <id root="1.3.6.1.4.1.21367.2010.1.2.888.3" extension="22_2010-1"/>
+      <code code="SELF" codeSystem="2.16.840.1.113883.5.111" displayName="Self" codeSystemName="HL7"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK" use="WP"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Thomas</given>
+          <family>Jefferson</family>
+        </name>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+
+  <author>
+    <time value="20150707140000-0600"/>
+    <assignedAuthor>
+      <id extension="23_2010-1" root="1.3.6.1.4.1.21367.1.2.888.3"/>
+      <addr>
+        <streetAddressLine>3 Aaron Burr Way</streetAddressLine>
+        <city>Chicago</city>
+        <state>IL</state>
+        <postalCode>60500</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:+1-(555)888-1234" use="WP"/>
+      <assignedAuthoringDevice>
+        <softwareName>Care Ware v1</softwareName>
+      </assignedAuthoringDevice>
+      <representedOrganization>
+        <id extension="30_2010-1" root="1.3.6.1.4.1.21367.1.2.888.3"/>
+        <name>HIT Solutions</name>
+        <telecom value="tel:+1-(555) 888-1234" use="WP"/>
+        <addr>
+          <streetAddressLine>123 Oak Street</streetAddressLine>
+          <city>Oak Brook</city>
+          <state>IL</state>
+          <postalCode>60523</postalCode>
+          <country>US</country>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="26_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.888.3"/>
+        <name>Greater Chicago HIE</name>
+        <telecom value="tel:+1-(555)888-1234" use="WP"/>
+        <addr>
+          <streetAddressLine>790 Jorie Blvd</streetAddressLine>
+          <city>Oak Brook</city>
+          <state>IL</state>
+          <postalCode>60523</postalCode>
+          <country>US</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <authenticator>
+    <time value="20150707140000-0600"/>
+    <signatureCode code="S"/>
+    <assignedEntity>
+      <id extension="38_2010-1" root="1.3.6.1.4.1.21367.2010.1.2.888.3"/>
+      <addr nullFlavor="UNK"/>
+      <telecom nullFlavor="UNK" use="WP"/>
+      <assignedPerson>
+        <name>
+          <prefix>Dr.</prefix>
+          <given>Thomas</given>
+          <family>Jefferson</family>
+        </name>
+      </assignedPerson>
+    </assignedEntity>
+  </authenticator>
+
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20150701120000-0600"/>
+        <high value="20150707140000-0600"/>
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.3"/>
+        <templateId root="2.16.840.1.113883.3.88.11.32.4"/>
+        <functionCode code="PP" codeSystem="2.16.840.1.113883.12.443"/>
+        <time>
+          <low value="20150701120000-0600"/>
+          <high value="20150707140000-0600"/>
+        </time>
+        <assignedEntity>
+          <id root="1.3.6.1.4.1.21367.2010.1.2.888.3" extension="32_2010-01"/>
+          <code code="260000000X" codeSystem="2.16.840.1.113883.6.101"
+            codeSystemName="ProviderCodes" displayName="Mount Vernon Hospitalist"/>
+          <addr nullFlavor="UNK"/>
+          <telecom nullFlavor="UNK" use="WP"/>
+          <assignedPerson>
+            <name>
+              <prefix>Dr.</prefix>
+              <given>Adam</given>
+              <family>Smith</family>
+            </name>
+          </assignedPerson>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+
+  <componentOf>
+    <encompassingEncounter>
+      <id root="1.3.6.1.4.1.21367.2015.1.10.1.50.1" extension="32_2015-1"/>
+      <effectiveTime>
+        <low value="20150701120000-0600"/>
+        <high value="20150707140000-0600"/>
+      </effectiveTime>
+    </encompassingEncounter>
+  </componentOf>
+
+  <component>
+    <structuredBody>
+
+      <!-- These are the sections in an IHE Discharge Summary; first column lists the optionality code -->
+      <!--  R[1..1]  Encompassing Encounter (200) -->
+      <!--  R[1..1]  Active Problems (201) -->
+      <!--  R2[0..1] Procedures and Interventions (202) -->
+      <!--  R2[0..1] Coded Hospital Course Section (203) -->
+
+
+
+      <!--  R[1..1]  Encompassing Encounter (200) -->
+      <!--  R[1..1]  Active Problems (201) -->
+
+      <!--  R2[0..1] Procedures and Interventions (202) -->
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.13.2.11"/>
+          <id root="1.3.6.1.4.1.21367.2015.1.10.1.202.1" extension="32_2015-1"/>
+          <code code="29554-3" displayName="PROCEDURE" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <title>Procedures and Interventions</title>
+          <text>
+            <content ID="Procedure_1">Procedure: Death certification</content>
+            <content ID="Procedure_2">Procedure: Death pronouncement</content>
+            <content ID="Procedure_3">Procedure: Autopsy performed</content>
+          </text>
+          <!-- Date certified: Calendar date when the death record is certified -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+              <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+              <id extension="32_2015-1" root="1.3.6.1.4.1.21367.2015.1.10.1.202.1.1"/>
+              <!-- Value Set Reference: http://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_CDA_Content_Modules.pdf See 6.5.JJ -->
+              <code code="308646001" displayName="Death certification (procedure)"
+                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+              <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                Coded Results section narrative text. -->
+              <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                The ID (and thus the reference) is case-sensitive. -->
+              <text>
+                <reference value="#Procedure_1"/>
+              </text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150706133500-0600"/>
+                <high value="20150706133500-0600"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          
+          <!-- Date pronounced Dead: Month, day and year decedent was pronounced dead -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+              <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+              <id extension="32_2015-1" root="1.3.6.1.4.1.21367.2015.1.10.1.202.1.2"/>
+              <!-- Value Set Reference: https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7274 -->
+              <code code="446661000124101" displayName="Death Pronouncement (procedure)"
+                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+              <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                Coded Results section narrative text. -->
+              <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                The ID (and thus the reference) is case-sensitive. -->
+              <text>
+                <reference value="#Procedure_2"/>
+              </text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150706133000-0600"/>
+                <high value="20150706133000-0600"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          
+          
+          <!-- Autopsy performed: YES -->
+          <entry>
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.29"/>
+              <!-- Inherits constraints from ASTM/HL7 CCD Procedure Activity -->
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19"/>
+              <!-- Procedure entry specified in PCC TF Supplement: CDA Content Modules 6.3.4.33 -->
+              <!-- ID is required by CCD Procedure Activity. More than one may be present. -->
+              <id extension="32_2015-1" root="1.3.6.1.4.1.21367.2015.1.10.1.202.1.3"/>
+              <!-- Value Set Reference: http://www.ihe.net/uploadedFiles/Documents/PCC/IHE_PCC_Suppl_CDA_Content_Modules.pdf See 6.5.FF -->
+              <code code="29240004" displayName="autopsy examination"
+                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+              <!-- Procedure entry requires linkages to the text associated with the code. This reference points to the 
+                Coded Results section narrative text. -->
+              <!-- Value is of the form "#" and the ID of the content element that contains the narrative text.
+                The ID (and thus the reference) is case-sensitive. -->
+              <text>
+                <reference value="#Procedure_3"/>
+              </text>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20150706163000-0600"/>
+                <high value="20150706170500-0600"/>
+              </effectiveTime>
+            </procedure>
+          </entry>
+          
+        </section>
+      </component>
+
+
+
+      <!--  R2[0..1] Coded Hospital Course Section (203) -->
+
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.5"/>
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.3.23.1"/>
+          <id root="1.3.6.1.4.1.21367.2015.1.10.1.200.1" extension="32_2015-1"/>
+          <code code="8648-8" displayName="HOSPITAL COURSE" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <text>Time of Death: 2015.07.06 13:30:00</text>
+
+          <!-- Time of Death Entry -->
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <realmCode/>
+              <templateId root="2.16.840.1.113883.10.20.24.1.13"/>
+              <id root="352586563"/>
+              <code code="31211-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Date of Death"/>
+              <effectiveTime>
+                <low value="20150706133000-0600"/>
+                <high value="20150706133000-0600"/>
+              </effectiveTime>
+              <languageCode/>
+              <author typeCode="AUT">
+                <time/>
+                <assignedAuthor classCode="ASSIGNED">
+                  <id root="1.3.6.1.4.1.21367.2010.1.2.888.3"/>
+                  <assignedPerson classCode="PSN" determinerCode="INSTANCE"/>
+                </assignedAuthor>
+              </author>
+            </observation>
+          </entry>
+
+        </section>
+      </component>
+
+
+
+      <!-- Active Problems (100) -->
+      <!--      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.1.11"/>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6"/>
+          <id root="1.3.6.1.4.1.21367.2015.1.10.1.100.1" extension="32_2015-1"/>
+          <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <text>TBD: Active Problems</text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.27"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1"/>
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2"/>
+              <id root="1.3.6.1.4.1.21367.2015.1.10.1.100.1.1" extension="32_2015-1"/>
+              <code nullFlavor="NA"/>
+
+              <statusCode code="active|suspended|aborted|completed"/>
+              <effectiveTime>
+                <low value="20150701120000-0600"/>
+                <high value="20150707140000-0600"/>
+              </effectiveTime>-->
+
+      <!-- 1..* entry relationships identifying problems of concern -->
+      <!--              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code='SEV' displayName='Severity' 
+                    codeSystem='2.16.840.1.113883.5.4' codeSystemName='ActCode' />
+                  <templateID root="1.3.6.1.4.1.19376.1.5.3.1.4.5"/>
+                </observation>
+              </entryRelationship>-->
+      <!--            </act>
+          </entry>
+        </section>
+      </component>-->
+
+
+
+
+
+      <!--      <component>-->
+      <!--        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.7.3.1.3.23.2"/>-->
+      <!-- VRDR Death Report Section -->
+      <!--
+          <code code="64297-5" displayName="Death Certificate" codeSystem="2.16.840.1.113883.6.1"
+            codeSystemName="LOINC"/>
+          <text>Time of Death: 2015.07.06 13:30:00</text>-->
+      <!-- 
+            R[0..1]  Time of Death
+            R[1..1]  Location of Death
+            O[0..1]  Death Certification
+            R[1..1]  Manner of Death
+            C[0..1]  Pregnancy Status
+            R2[0..1] Tobacco Use
+            R2[0..1] Injury
+            R[1..1]  Death Casual Information
+            R[1..1]  Autopsy Performance
+            O[0..1]  Coroner Referral
+            R[1..1]  Coroner Case Transfer
+            R[1..1]  Death Location Type
+            R[1..1]  Death Pronouncement          
+          -->
+
+      <!-- Time of Death Observation -->
+      <!--
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.13"/>
+              <code code="31211-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Date of Death"/>
+              <text>Optional information relevant to the date/time of death in cases where the point
+                in time can in no way be established.</text>
+              <effectiveTime>
+                <low value="20150706133000-0600"/>
+                <high value="20150706133000-0600"/>
+              </effectiveTime>
+            </observation>
+          </entry>
+          -->
+
+      <!-- Location of Death Observation -->
+      <!--          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.10"/>
+              <code code="58332-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Location of Death"/>
+              <value use="HP" xsi:type="AD">
+                <streetAddressLine>15 East Lake</streetAddressLine>
+                <city>Chicago</city>
+                <state>IL</state>
+                <postalCode>60500</postalCode>
+              </value>
+            </observation>
+          </entry>-->
+
+      <!-- Death Certification -->
+      <!-- Missing -->
+
+      <!-- Manner of death -->
+      <!--          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.11"/>
+              <code code="69449-7" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Manner of Death"/>
+              <value code="38605008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                displayName="Natural Death (event)" xsi:type="CD"/>
+            </observation>
+          </entry>-->
+
+      <!-- Pregnancy Status -->
+      <!--          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.12"/>
+              <code code="69442-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Pregnancy Status"/>
+              <value code="PHC1260" codeSystem="2.16.840.1.114222.4.5.274" codeSystemName="PHIN VS (CDC Local Coding System)" displayName="Not pregnant within the past year" xsi:type="CD"/>
+            </observation>
+          </entry>-->
+
+      <!-- Tobacco Use -->
+      <!--          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.14"/>
+              <code code="69443-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Did tobacco use contribute to death"/>
+              <value code="373067005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                displayName="No" xsi:type="CD"/>
+            </observation>
+          </entry>-->
+
+      <!-- Injury -->
+      <!--          <entry>
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.9"/>
+              <code code="71481-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Did the death of this person involve injury of any kind"/>
+              <statusCode code="completed"/>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="11374-6" displayName="Injury incident description" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <text mediaType="text/plain">Minor auto accident, not related to patient death.</text>
+                  <effectiveTime value="20150705"/>
+                  <value xsi:type="BL" value="true"/>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="69444-8" displayName="Did death result from injury at work" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value xsi:type="BL" value="false"/>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="69448-9" displayName="Injury leading to death associated with transportation event" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value xsi:type="BL" value="true"/>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="69451-3" displayName="Transportation role of decedent" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                  <value xsi:type="CD" code="236320001" displayName="Driver/Operator" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>-->
+
+      <!-- Death Casual Information -->
+      <!--<entry>-->
+      <!-- Cause of Death -->
+      <!--            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.6"/>
+              <code code="69453-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Cause Of Death (US Standard Certificate of Death)"/>
+              <statusCode code="completed"/>-->
+      <!-- Note, at least one component containing death cause information is required -->
+      <!--              <component typeCode="COMP">
+                <sequenceNumber value="1"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="21984-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Cause of Death"/>
+                  <value xsi:type="CD">
+                    <originalText>PROBABLE ATCVD</originalText>
+                  </value>-->
+      <!-- Descriptive text that indicates one or more diseases, injuries, or complications that were implicated as a cause of the person's death. -->
+      <!--                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <code code="69440-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Disease onset to death interval"/>
+                      <value xsi:type="ED">Three Days</value>
+                      <!-\- A measure of the time interval between the onset of the disease, injury or complication, and the person's death. -\->
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <sequenceNumber value="2"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="21984-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Cause of Death"/>
+                  <value xsi:type="CD">
+                    <originalText>HTN</originalText>
+                  </value>-->
+      <!-- Descriptive text that indicates one or more diseases, injuries, or complications that were implicated as a cause of the person's death. -->
+      <!--                  <entryRelationship typeCode="COMP">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <code code="69440-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Disease onset to death interval"/>
+                      <value xsi:type="ED">2 months</value>-->
+      <!-- A measure of the time interval between the onset of the disease, injury or complication, and the person's death. -->
+      <!--                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <component typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <code code="69441-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Death cause other significant conditions"/>
+                  <value xsi:type="CD">
+                    <originalText>Broken arm, did not contribute to death.</originalText>
+                  </value>
+                </observation>
+              </component>
+            </organizer>
+          </entry>-->
+
+      <!-- Autopsy Performance -->
+      <!-- Coroner Referral -->
+      <!-- Coroner Case Transfer -->
+      <!-- Death Location Type -->
+      <!-- Death Pronouncement -->
+
+
+
+      <!-- Death Certifier -->
+      <!-- Not sure what this is -->
+      <!--          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.26.1.7"/>
+              <code code="69437-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Death Certifier"/>
+              <effectiveTime>
+                <low value="20150706133000-0600"/>
+                <high value="20150706133000-0600"/>
+              </effectiveTime>
+              <performer typeCode="PRF">
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="1.1" extension="1234567"/>
+                  <!-\- Provide an OID that identifies the namespace for the identifier. -\->
+                  <code code="309343006" codeSystem="2.16.840.1.113883.6.96"
+                    codeSystemName="SNOMED-CT" displayName="Physician"/>
+                  <addr use="WP">
+                    <streetAddressLine>3 Aaron Burr Way</streetAddressLine>
+                    <city>Chicago</city>
+                    <state>IL</state>
+                    <postalCode>60500</postalCode>
+                    <country>US</country>
+                  </addr>
+                  <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name>
+                      <prefix>Dr.</prefix>
+                      <given>Thomas</given>
+                      <family>Jefferson</family>
+                    </name>
+                  </assignedPerson>
+                </assignedEntity>
+              </performer>
+            </observation>
+          </entry>
+
+        </section>-->
+      <!--      </component>-->
+
+    </structuredBody>
+  </component>
+</ClinicalDocument>

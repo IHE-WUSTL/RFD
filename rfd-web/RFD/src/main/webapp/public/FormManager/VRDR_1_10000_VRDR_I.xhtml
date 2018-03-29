@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+
+<f:metadata>
+   <f:event
+      listener="#{formManagerTests.initVRDR_1_10000_VRDR_I}"
+      type="preRenderView" />
+</f:metadata>
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+   <ui:define name="content">
+
+      <h:form>
+         <p:breadCrumb>
+            <p:menuitem
+               value="Home"
+               outcome="/public/RFD" />
+            <p:menuitem
+               value="Form Manager"
+               outcome="/public/FormManager/index" />
+            <p:menuitem
+               value="VRDR_1_10000_VRDR_I"
+               outcome="VRDR_1_10000_VRDR_I" />
+         </p:breadCrumb>
+      </h:form>
+
+      <br />
+      <div
+         align="left"
+         style="margin-left: 50px">
+
+         <h2>VRDR_1_10000_VRDR_I</h2>
+
+         <h3>Special Instructions</h3>
+
+         In this test, you will need to access the form produced by your Form
+         Manager with a standard web browser. That web browser will need to be
+         configured to support <a
+            href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing">
+            Cross Origin Resource Sharing</a>. Details are <a
+            href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Browser_support">here</a>
+         <p />
+         Your Form Manager will need to use the following URL as the endpoint to
+         submit the completed form: <br /> <span style="color: blue">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            http://host:3303/FormReceiver/</span> <br /> This will send the form to a
+         Form Receiver simulator.
+
+         <h3>Description</h3>
+         Tests the ability of a Form Manager actor to respond to an ITI-34
+         transaction, returning a URL which can be subsequently retrieved,
+         displayed in a web browser, filled in, and submitted to a Form Filler
+         actor.
+         <ol type="1">
+            <li>A Form Filler simulator will send an ITI-34
+               RetrieveFormRequest to the Form Manager under test with the
+               following characteristics:</li>
+            <ol type="a">
+            <li>Pre-population data is a valid Vital Records Death
+               Reporting (VRDR) CDA document OTHER THAN a Summary Documents for
+               Medical Summary for VRDR Pre-pop(MS-VRDR). These documents include:
+               <ul>
+                  <li>PCC MS Referral Summary.</li>
+                  <li>PCC MS Discharge Summary.</li>
+                  <li>PCC XPHR PHR Extract.</li>
+                  <li>PCC XPHR PHR Update.</li>
+                  <li>HL7/ASTM CCD.</li>
+               </ul>
+            </li>
+               <li>workflowData.formID: Default value for this test is
+                  "VRDR_1_10000_VRDR_I". You can substitute a different value
+                  if your system has constraints on the construction of the
+                  formID.</li>
+               <li>workflowData.encodedResponse: false, meaning the Form
+                  Filler is requesting the URL of a form that can be opened in a
+                  web browser</li>
+               <li>workflowData.archiveURL: null string</li>
+               <li>workflowData.context: null</li>
+               <li>workflowData.instanceID: null</li>
+            </ol>
+            <li>The Form Manager under test responds with a URL of a form.</li>
+            <li>The Form Filler simulator displays the URL to the testing
+               person.</li>
+            <li>The testing person will copy/paste the URL into a standard
+               web browser that is properly configured for security (see above).</li>
+            <li>The testing person will complete and submit the form.</li>
+            <li>The code in the form submits the form to the Form Receiver
+               simulator. The form is not submitted back to the Form Manager.</li>
+            <li>Using the controls below, the testing person can evaluate
+               the test data sent in the form.</li>
+         </ol>
+
+         <h2>Evaluation</h2>
+         <ol type="1">
+            <li>Complete the test steps below.</li>
+            <li>When you submit the form, make sure your web browser
+               reports no errors. Specifically, the form should be submitted to
+               the Form Receiver simulator.</li>
+            <li>Use the testing system to find the form data submitted to
+               the Form Receiver simulator. Display the data element/value pairs
+               and check for consistency with the values in the ITI-34
+               transaction.</li>
+         </ol>
+
+         <h2>Test Steps</h2>
+         <ol type="1">
+            <li>Fill in the URL of the FormManager under test in the space
+               below.</li>
+            <li>The default formID is "VRDR_1_10000_VRDR_I". Use the
+               default formID or an identifier specified by the Form Manager
+               under test. Enter the formID below.</li>
+            <li>Click the "Submit Form Request" command button. The Form
+               Filler simulator will send an ITI-34 RetrieveFormRequest with the
+               characteristics described above to your Form Manager. This
+               transaction will be monitored and included in the Transactions
+               table below.</li>
+            <li>If this step is successful the URL returned by your Form
+               Manager should be displayed below the Submit Form Request command
+               button. Copy/paste that URL in a Web Browser. It should render
+               successfully.</li>
+            <li>Complete the form and submit. The form should be
+               transmitted to the Form Receiver simulator located at <br /> <span
+               style="color: blue">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  http://host:3303/FormReceiver/</span>. <br />
+            </li>
+            <li>View the transaction logging data in the Transactions Table
+               below. You should see element/value pairs that match the data you
+               entered in the form.</li>
+         </ol>
+
+         <h3>Supplemental Materials</h3>
+         <h3>References to Standards</h3>
+         <h3>Testable Assertions</h3>
+
+         <h:form id="testDataForm">
+            <p:fieldset
+               legend="Data required for Test"
+               styleClass="testData">
+               <h:panelGrid
+                  columns="3"
+                  cellpadding="5">
+                  <p:outputLabel
+                     for="fmurl"
+                     value="URL of (your) Form Manager:" />
+                  <p:inputText
+                     id="fmurl"
+                     size="40"
+                     value="#{formManagerTests.serverURL}" />
+                  <p:message for="fmurl" />
+                  <p:outputLabel
+                     for="formID"
+                     value="form ID:" />
+                  <p:inputText
+                     id="formID"
+                     size="40"
+                     value="#{formManagerTests.formID}" />
+                  <p:message for="formID" />
+                  <p:commandButton
+                     id="startTest"
+                     value="Submit Form Request"
+                     actionListener="#{formManagerTests.submitVRDR_1_10000_VRDR_I}"
+                     ajax="false" />
+                  <h:outputText value="" />
+                  <h:outputText value="" />
+                  <p:outputLabel
+                     rendered="#{formManagerTests.renderFormURL()}"
+                     for="furl"
+                     value="URL of form:" />
+                  <h:outputText
+                     id="furl"
+                     rendered="#{formManagerTests.renderFormURL()}"
+                     value="#{formManagerTests.formURL}" />
+               </h:panelGrid>
+               <p:messages globalOnly="true" />
+            </p:fieldset>
+         </h:form>
+      </div>
+
+      <div>
+         <h:form id="transactionTableForm">
+
+            <p:dataTable
+               id="transactionTable"
+               var="trn"
+               value="#{sessionBean.transactions}"
+               selection="#{sessionBean.selectedTransaction}"
+               selectionMode="single"
+               rowKey="#{trn.id}"
+               emptyMessage="No transactions available to view."
+               sortBy="#{trn.id}">
+
+               <p:ajax
+                  event="rowSelect"
+                  update="transactionTableForm" />
+               <p:ajax
+                  event="rowUnselect"
+                  update="transactionTableForm" />
+
+               <f:facet name="header">
+               Transactions (Select to View)
+               </f:facet>
+
+               <p:column
+                  sortBy="#{trn.id}"
+                  headerText="ID"
+                  style="width:50px">
+                  <h:outputText value="#{trn.id}" />
+               </p:column>
+
+               <p:column
+                  sortBy="#{trn.connOpenTime}"
+                  headerText="Connection Open Time and Date"
+                  style="width:240px">
+                  <h:outputText value="#{trn.connOpenTime}" />
+               </p:column>
+
+               <p:column
+                  sortBy="#{trn.type}"
+                  headerText="Type"
+                  style="width:130px">
+                  <h:outputText value="#{trn.type}" />
+               </p:column>
+
+               <p:column
+                  sortBy="#{trn.clientIp}"
+                  headerText="Remote Address"
+                  style="width:125px">
+                  <h:outputText value="#{trn.clientIp}" />
+               </p:column>
+
+               <p:column headerText="Transaction Description">
+                  <h:outputText value="#{trn.description}" />
+               </p:column>
+
+               <f:facet name="footer">
+                  <p:commandButton
+                     disabled="#{sessionBean.deleteTransactionDisabled}"
+                     icon="ui-icon-search"
+                     update="transactionDetailForm"
+                     value="View Detail" />
+                  <p:commandButton
+                     disabled="#{sessionBean.deleteTransactionDisabled}"
+                     icon="ui-icon-close"
+                     update="transactionTableForm transactionDetailForm"
+                     actionListener="#{sessionBean.deleteThisTransaction}"
+                     value="Delete Transaction" />
+                  <p:commandButton
+                     disabled="#{sessionBean.clearAllTransactionsDisabled}"
+                     value="Clear all Transactions"
+                     icon="ui-icon-circle-close"
+                     update="transactionTableForm transactionDetailForm"
+                     actionListener="#{sessionBean.clearAllTransactions}" />
+                  <p:commandButton
+                     disabled="#{sessionBean.updateTransactionsTableDisabled}"
+                     value="Update Transactions Table"
+                     icon="ui-icon-refresh"
+                     update="transactionTableForm transactionDetailForm"
+                     actionListener="#{sessionBean.updateTransactionTable}" />
+               </f:facet>
+
+            </p:dataTable>
+
+         </h:form>
+
+         <p:socket channel="/wsLogReceiveEvent">
+            <p:ajax
+               event="message"
+               update="transactionTableForm:transactionTable" />
+         </p:socket>
+
+      </div>
+
+      <div>
+         <h:form id="transactionDetailForm">
+            <p:accordionPanel
+               id="msgPanel"
+               rendered="#{sessionBean.transactionSelected}">
+               <p:tab
+                  title="Transaction Details: 
+                     #{sessionBean.selectedTransaction.clientIp} 
+                     #{sessionBean.selectedTransaction.description}">
+
+                  <!-- Transaction HTTP and SOAP properties -->
+                  <p:dataTable
+                     id="propertyTable"
+                     var="row"
+                     value="#{sessionBean.properties}"
+                     emptyMessage="No properties found">
+
+                     <f:facet name="header">Transaction HTTP and SOAP properties</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{row.label}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{row.value}" />
+                     </p:column>
+
+                  </p:dataTable>
+
+                  <!-- Validation and testing status information -->
+                  <p:dataTable
+                     id="statusTable"
+                     var="status"
+                     value="#{sessionBean.statuses}"
+                     rowStyleClass="#{sessionBean.statusStyle(status)}"
+                     emptyMessage="No statuses found">
+
+                     <f:facet name="header">Validation and testing status information</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{status.statusType.toString()}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{status.msg}" />
+                     </p:column>
+
+                  </p:dataTable>
+
+                  <!-- SOAP Request Name Value pairs -->
+                  <p:dataTable
+                     rendered="#{sessionBean.requestName != null}"
+                     id="requestNameValueTable"
+                     var="pair"
+                     value="#{sessionBean.requestPairs}"
+                     rowStyleClass="powderblue"
+                     emptyMessage="No name/value pairs recorded">
+
+                     <f:facet name="header">SOAP #{sessionBean.requestName} Data Values</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{pair.label}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{pair.value}" />
+                     </p:column>
+
+                  </p:dataTable>
+
+
+                  <!-- SOAP Response Name Value pairs -->
+                  <p:dataTable
+                     rendered="#{sessionBean.responseName != null}"
+                     id="responseNameValueTable"
+                     var="pair"
+                     value="#{sessionBean.responsePairs}"
+                     rowStyleClass="peachpuff"
+                     emptyMessage="No name/value pairs recorded">
+
+                     <f:facet name="header">SOAP #{sessionBean.responseName} Data Values</f:facet>
+
+                     <p:column>
+                        <h:outputText value="#{pair.label}" />
+                     </p:column>
+
+                     <p:column>
+                        <h:outputText value="#{pair.value}" />
+                     </p:column>
+
+                  </p:dataTable>
+               </p:tab>
+
+            </p:accordionPanel>
+
+            <p:accordionPanel
+               rendered="#{sessionBean.transactionSelected}"
+               value="#{sessionBean.msgs}"
+               var="msg">
+               <p:tab title="#{msg.lead}">
+                  <pre style="width: 100%">
+#{msg.pretty}
+               </pre>
+               </p:tab>
+
+
+            </p:accordionPanel>
+
+
+         </h:form>
+      </div>
+
+   </ui:define>
+</ui:composition>
+</html>
+

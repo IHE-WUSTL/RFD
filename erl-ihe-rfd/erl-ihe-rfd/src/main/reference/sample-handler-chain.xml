@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Taken from JSR-181 4.6.3 -->
+<bindings
+   wsdlLocation="http://localhost:8080/jaxrpc-fromwsdl_handler/test?wsdl"
+   xmlns="http://java.sun.com/xml/ns/jaxws">
+   <bindings
+      node="ns1:definitions"
+      xmlns:ns1="http://schemas.xmlsoap.org/wsdl/">
+      <package name="fromwsdl.handler.client" />
+   </bindings>
+   <bindings
+      node="ns1:definitions/ns1:types/xs:schema[@targetNamespace='urn:test:types']"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:ns1="http://schemas.xmlsoap.org/wsdl/">
+      <ns2:schemaBindings xmlns:ns2="http://java.sun.com/xml/ns/jaxb">
+         <ns2:package name="fromwsdl.handler.client" />
+      </ns2:schemaBindings>
+   </bindings>
+   <bindings>
+      <handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+         <handler-chain>
+            <handler>
+               <handler-class> fromwsdl.handler.common.BaseLogicalHandler
+               </handler-class>
+               <init-param>
+                  <param-name>handlerName</param-name>
+                  <param-value>client0</param-value>
+               </init-param>
+            </handler>
+         </handler-chain>
+         <handler-chain>
+            <port-name-pattern xmlns:ns2="urn:test"> ns2:Report*
+            </port-name-pattern>
+            <handler>
+               <handler-class> fromwsdl.handler.common.BaseLogicalHandler
+               </handler-class>
+               <init-param>
+                  <param-name>handlerName</param-name>
+                  <param-value>client2</param-value>
+               </init-param>
+            </handler>
+         </handler-chain>
+         <handler-chain>
+            <port-name-pattern xmlns:ns2="urn:test">ns2:ReportServicePort
+            </port-name-pattern>
+            <handler>
+               <handler-class> fromwsdl.handler.common.BaseSOAPHandler
+               </handler-class>
+               <init-param>
+                  <param-name>handlerName</param-name>
+                  <param-value>client6</param-value>
+               </init-param>
+            </handler>
+         </handler-chain>
+         <handler-chain>
+            <protocol-bindings>##SOAP11_HTTP</protocol-bindings>
+            <handler>
+               <handler-class> fromwsdl.handler.common.BaseSOAPHandler
+               </handler-class>
+               <init-param>
+                  <param-name>handlerName</param-name>
+                  <param-value>client7</param-value>
+               </init-param>
+               <soap-role>http://sun.com/client/role1</soap-role>
+               <soap-role>http://sun.com/client/role2</soap-role>
+            </handler>
+         </handler-chain>
+         <handler-chain>
+            <protocol-bindings>##SOAP11_HTTP</protocol-bindings>
+            <handler>
+               <handler-class> fromwsdl.handler.common.BaseLogicalHandler
+               </handler-class>
+               <init-param>
+                  <param-name>handlerName</param-name>
+                  <param-value>client3</param-value>
+               </init-param>
+            </handler>
+         </handler-chain>
+      </handler-chains>
+   </bindings>
+</bindings>

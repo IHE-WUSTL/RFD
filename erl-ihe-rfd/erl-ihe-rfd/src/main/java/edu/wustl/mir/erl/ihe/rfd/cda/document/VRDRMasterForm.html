@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>${formId} Test Form</title>
+<meta
+   http-equiv="Content-Type"
+   content="text/html;charset=UTF-8" />
+   
+<script>
+//******************************************************************
+// Establishes the parameter name list for parameters in the form
+//******************************************************************
+   function parNames() {
+	   var names = [
+	      "prepopDocument",
+	      "decedentName",
+	      "dateOfBirth",
+	      "decedentResidence",
+	      "race",
+	      "sex",
+	      "ssn",
+	      "dateOfDeath",
+	      "dateCertified",
+	      "datePronounced",
+	      "autopsyPerformed"
+	      ];
+	   return names;
+   }
+
+   //******************************************************************
+   // Turn off all function derivations. Done on load
+   //******************************************************************
+     function turnOffFunctionDerivations() {
+        turnOff("sex");
+        turnOff("prepopDocument");
+        turnOff("dateCertified");
+        turnOff("datePronounced");
+        turnOff("autopsyPerformed");
+     }
+
+   //******************************************************************
+   // Displays the first item while hiding the second one
+   //******************************************************************
+     function swap(one, two) {
+         document.getElementById(one).style.display = 'block';
+         document.getElementById(two).style.display = 'none';
+     }
+
+     //******************************************************************
+     // Turns off detail display for value
+     //******************************************************************
+       function turnOff(param) {
+           document.getElementById(param + "Off").style.display = 'block';
+           document.getElementById(param + "On" ).style.display = 'none';
+       }
+
+ //****************************************************************** 
+ // Generates and sends the SOAP SubmitFormRequest
+ //******************************************************************
+   function soap() {
+   
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open('POST', '${destinationEndpointURL}', true);
+
+      var sr = '<?xml version="1.0" encoding="utf-8"?>\n'
+            + '<soap:Envelope\n ' 
+            +       'xmlns:soap="http://www.w3.org/2003/05/soap-envelope"\n '
+            +       'xmlns:wsa="http://www.w3.org/2005/08/addressing"\n '
+            +       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n '
+            +       'xmlns:urn="urn:ihe:iti:rfd:2007">\n'
+            
+            + '<soap:Header>\n '
+            + '<wsa:To>${destinationEndpointURL}</wsa:To>\n'
+            + '<wsa:MessageID>urn:uuid:76A2C3D9BCD3AECFF31217932910053</wsa:MessageID>\n'
+            + '<wsa:Action soap:mustUnderstand="1">urn:ihe:iti:2007:SubmitForm</wsa:Action>\n'
+            + '</soap:Header>\n' 
+            
+            + '<soap:Body>\n'
+            + '<SubmitFormRequest xmlns="urn:ihe:iti:rfd:2007">\n'
+            + '<testFormID xsi:type="xsd:string">${formId}</testFormID>\n';
+            
+            // Inserts returned values for parameters
+            var pNames = parNames();
+            for (i = 0; i < pNames.length; i++) {
+            	sr += submitStr(pNames[i]);
+            }
+            
+            sr = sr            
+            + '</SubmitFormRequest>\n'
+            + '</soap:Body>\n' 
+            + '</soap:Envelope>\n';
+            
+      xmlhttp.setRequestHeader('Content-Type', 'application/soap+xml');
+      xmlhttp.send(sr);
+   }
+
+   //****************************************************************** 
+   // Generates xml for a paramater:
+	// <parName xsi:type="xsd:string">parValue</parName>\n
+   //******************************************************************
+   function submitStr(parName) {
+	   return '<' + parName + ' xsi:type="xsd:string">' + 
+	         document.getElementById(parName).value +
+	         '</' + parName + '>\n';
+   }
+</script>
+
+</head>
+<body onload="turnOffFunctionDerivations()">
+   <noscript>
+      <h2>This form requires JavaScript</h2>
+   </noscript>
+   <form
+      name="Demo"
+      action=""
+      method="post">
+      <div>
+         Test ID: ${formId} <b>MS-VRDR Test Form</b><br />
+         <table>
+
+            <tr align="center">
+               <td><b>Element Name</b></td>
+               <td><b>Element Value</b></td>
+               <td><b>Coding system</b></td>
+            </tr>
+             
+${prepopDocumentSnippet}   
+${decedentNameSnippet}   
+${dateOfBirthSnippet}   
+${decedentResidenceSnippet} 
+${raceSnippet}   
+${sexSnippet}   
+${ssnSnippet}   
+${dateOfDeathSnippet}   
+${dateCertifiedSnippet}   
+${datePronouncedSnippet}     
+${autopsyPerformedSnippet}    
+
+            <tr>
+               <td><input
+                  type="button"
+                  value="Send SOAP Request"
+                  onclick="soap()" /></td>
+            </tr>
+         </table>
+      </div>
+   </form>
+</body>
+</html>

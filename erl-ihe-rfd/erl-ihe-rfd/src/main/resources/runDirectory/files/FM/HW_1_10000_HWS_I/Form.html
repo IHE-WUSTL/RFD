@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HW_1_10000_HWS_A Test Form</title>
+<meta
+   http-equiv="Content-Type"
+   content="text/html;charset=UTF-8"/>
+<script type="text/javascript">
+	function soap(sex, race, height, weight, ssbOther, ssbSoftDrinks, milk, 
+			water, insuranceType, insuranceCompanyName) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open('POST', 'http://localhost:3302/FormReceiver', true);
+
+		var sr = '<?xml version="1.0" encoding="utf-8"?>\n'
+				+ '<soap:Envelope\n ' 
+            +       'xmlns:soap="http://www.w3.org/2003/05/soap-envelope"\n '
+            +       'xmlns:wsa="http://www.w3.org/2005/08/addressing"\n '
+            +       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n '
+            +       'xmlns:urn="urn:ihe:iti:rfd:2007">\n'
+				+ '<soap:Header>\n '
+				+ '<wsa:To>http://localhost:3302/FormReceiver</wsa:To>\n'
+				+ '<wsa:MessageID>urn:uuid:76A2C3D9BCD3AECFF31217932910053</wsa:MessageID>\n'
+				+ '<wsa:Action soap:mustUnderstand="1">urn:ihe:iti:2007:SubmitForm</wsa:Action>\n'
+				+ '</soap:Header>\n' + '<soap:Body>\n'
+				+ '<SubmitFormRequest xmlns="urn:ihe:iti:rfd:2007">\n'
+				+ '<testFormID xsi:type="xsd:string">HW_1_10000_HWS_A</testFormID>\n'
+				+ '<sex           xsi:type="xsd:string">' + sex           + '</sex>\n'
+				+ '<race          xsi:type="xsd:string">' + race          + '</race>\n'
+	         + '<height        xsi:type="xsd:string">' + height        + '</height>\n'
+	         + '<weight        xsi:type="xsd:string">' + weight        + '</weight>\n'
+	         + '<ssbOther      xsi:type="xsd:string">' + ssbOther      + '</ssbOther>\n'
+	         + '<ssbSoftDrinks xsi:type="xsd:string">' + ssbSoftDrinks + '</ssbSoftDrinks>\n'
+	         + '<milk          xsi:type="xsd:string">' + milk          + '</milk>\n'
+	         + '<water         xsi:type="xsd:string">' + water         + '</water>\n'
+				+ '<insuranceType xsi:type="xsd:string">' + insuranceType + '</insuranceType>\n' 
+	         + '<insuranceCompanyName xsi:type="xsd:string">' + insuranceCompanyName + '</insuranceCompanyName>\n' 
+
+				+ '</SubmitFormRequest>\n'
+				+ '</soap:Body>\n' + '</soap:Envelope>\n';
+		xmlhttp.setRequestHeader('Content-Type', 'application/soap+xml');
+		xmlhttp.send(sr);
+	}
+</script>
+</head>
+<body>
+   <form
+      name="Demo"
+      action=""
+      method="post">
+      <div>
+         HWS Test Form<br />
+         <table>
+            <tr>
+               <td>Administrative Sex:</td>
+               <td><input
+                  id="sex"
+                  type="text"
+                  name="sex"
+                  value="M" /></td>
+            </tr>
+            <tr>
+               <td>Race:</td>
+               <td><input
+                  id="race"
+                  type="text"
+                  name="race"
+                  value="101" /></td>
+            </tr>
+            <tr>
+               <td>Height:</td>
+               <td><input
+                  id="height"
+                  type="text"
+                  name="height"
+                  value="1.5" /></td>
+                  <td>unit: m PQ</td>
+            </tr>
+            <tr>
+               <td>Weight:</td>
+               <td><input
+                  id="weight"
+                  type="text"
+                  name="weight"
+                  value="50" /></td>
+                  <td>unit: kg PQ</td>
+            </tr>
+            <tr>
+               <td>SSB Other:</td>
+               <td><input
+                  id="ssbOther"
+                  type="text"
+                  name="ssbOther"
+                  value="2" /></td>
+                  <td>unit:  INT</td>
+            </tr>
+            <tr>
+               <td>SSB Soft Drinks:</td>
+               <td><input
+                  id="ssbSoftDrinks"
+                  type="text"
+                  name="ssbSoftDrinks"
+                  value="1" /></td>
+                  <td>unit:  INT</td>
+            </tr>
+            <tr>
+               <td>Milk intake:</td>
+               <td><input
+                  id="milk"
+                  type="text"
+                  name="milk"
+                  value="0" /></td>
+                  <td>unit:  INT</td>
+            </tr>
+            <tr>
+               <td>Water intake:</td>
+               <td><input
+                  id="water"
+                  type="text"
+                  name="water"
+                  value="4" /></td>
+                  <td>unit:  INT</td>
+            </tr>
+            <tr>
+               <td>Insurance Type:</td>
+               <td><input
+                  id="insuranceType"
+                  type="text"
+                  name="insuranceType"
+                  value="611" /></td>
+            </tr>
+            <tr>
+               <td>Insurance Company:</td>
+               <td><input
+                  id="insuranceCompanyName"
+                  type="text"
+                  name="insuranceCompanyName"
+                  value="Blue Moon HMO" /></td>
+            </tr>
+            <tr>
+               <td><input
+                  type="button"
+                  value="Send SOAP Request"
+                  onclick="soap(document.getElementById('sex').value, 
+                		           document.getElementById('race').value, 
+                		           document.getElementById('height').value, 
+                		           document.getElementById('weight').value, 
+                		           document.getElementById('ssbOther').value, 
+                		           document.getElementById('ssbSoftDrinks').value, 
+                		           document.getElementById('milk').value, 
+                		           document.getElementById('water').value, 
+                		           document.getElementById('insuranceType').value, 
+                		           document.getElementById('insuranceCompanyName').value)" /></td>
+            </tr>
+         </table>
+      </div>
+   </form>
+</body>
+</html>

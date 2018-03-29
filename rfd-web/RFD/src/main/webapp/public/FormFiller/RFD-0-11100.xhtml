@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+</style>
+</h:head>
+
+<ui:composition template="/resources/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:breadCrumb>
+				<p:menuitem value="Home" outcome="/public/RFD" />
+				<p:menuitem value="Form Filler" outcome="/public/FormFiller/index" />
+				<p:menuitem value="RFD 0-11100" outcome="RFD-0-11100.xhtml" />
+			</p:breadCrumb>
+		</h:form>
+
+		<br />
+		<br />
+		<div align="center">
+			<h1>
+				<font size="10">RFD-FF 0-11100</font>
+			</h1>
+		</div>
+
+		<div align="left" style="margin-left: 50px">
+			<h2>Special Instructions</h2>
+			<p>RFD 0-11100 is a test with a combination of request
+				parameters that are not found in common practice. The test is
+				defined for documentation purposes but no software is included. The
+				test software will be completed if there is a need.</p>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Description</h2>
+			<p>
+				This test requires that the Form Filler initiate an ITI-34
+				transaction with the following requirements:
+				<ol>
+					<li>Pre-population data is null.</li>
+					<li>workflowData.formID: RFD 0-11100</li>
+					<li>workflowData.encodedResponse: true, meaning the Form
+						Filler is requesting an actual form</li>
+					<li>workflowData.archiveURL: The URL of the Form Archiver in
+						the test rig.</li>
+					<li>workflowData.context: null</li>
+					<li>workflowData.instanceID: null</li>
+				</ol>
+			</p>
+			<p>
+				<ul>
+					<li>The Form Filler submits the Request for Form (ITI-34)
+						using this value for formID: RFD 0-11100</li>
+					<li>The test system returns a form to the Form Filler.</li>
+					<li>The test system evaluates the request for all required
+						properties (both positive and negative).</li>
+				</ul>
+			</p>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Evaluation</h2>
+		</div>
+		<br />
+		<div align="left" style="margin-left: 50px">
+			<h2>Test Steps</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Supplemental Materials</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>References to Standards</h2>
+		</div>
+		<div align="left" style="margin-left: 50px">
+			<h2>Testable Assertions</h2>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>
+
